@@ -1,0 +1,43 @@
+.tile-board {
+    display: inline-block;
+    height: 304px;
+    width: 304px;
+    border: 2px solid black;
+}
+
+.tile {
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    float: left;
+    background: #fafafa;
+    font-size: 20pt;
+    line-height: 100px;
+}
+
+.tile:hover:not(:empty) {
+    cursor: pointer;
+    -webkit-transition: -webkit-transform 0.3s, background 0.3s;
+    transition: transform 0.3s, background 0.3s;
+    background: #eee;
+}
+
+.move-up {
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+}
+
+.move-down {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+}
+
+.move-left {
+    -webkit-transform: translateX(-100px);
+    transform: translateX(-100px);
+}
+
+.move-right {
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+}
