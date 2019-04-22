@@ -111,6 +111,24 @@ export default class Board {
     }
 
     /**
+     * Shuffle the tiles using valid moves to ensure the puzzle is solvable.
+     * @param n {number} - The number of random moves to make
+     * @return {null}
+     */
+    shuffle(n) {
+        for (let i = 0; i < n; i++) {
+            // Update the blank index.
+            this.updateBlankIndex();
+            // Get all valid moves.
+            let moves = this.getMoves();
+            // Get a random move.
+            let move = moves[Math.floor(Math.random() * moves.length)];
+            // Perform that move.
+            this.moveSpace(move);
+        }
+    }
+
+    /**
      * Get the index to move to, given a position and direction
      * @param position {number} - Position of tile
      * @param direction {string} - Direction to move to

@@ -24,8 +24,8 @@ class TileBoard extends Component {
         super(props);
         this.state = {
             solution: "Hello World",
-            n: 3,
-            board: new Board(3)
+            n: 4,
+            board: new Board(4)
         };
     }
 
@@ -33,12 +33,14 @@ class TileBoard extends Component {
      * Set up the game board.
      */
     generateBoard() {
-        // Create/shuffleTiles the tiles.
+        // Create the tiles.
         let tiles = this.generateTiles();
         // Create a solved board.
         let solved_board = new Board(this.state.n);
         // Create an unsolved board.
         let unsolvedBoard = new BoardNode(this.state.n, solved_board, 0, null, tiles);
+        // Shuffle it.
+        unsolvedBoard.shuffle(50);
         // Set the blank index.
         let symbol = -1;
         for (let i = 0; i < tiles.length; i++) {
@@ -66,7 +68,7 @@ class TileBoard extends Component {
         // Add on the blank tile.
         tiles.push(new Tile(-1));
         // Shuffle the tiles.
-        this.shuffleTiles(tiles);
+        // this.shuffleTiles(tiles);
         return tiles;
     }
 
@@ -97,6 +99,19 @@ class TileBoard extends Component {
         this.setState(() => ({
             board: board
         }));
+    }
+
+    /**
+     * Shuffle using valid moves.
+     * @return {null}
+     */
+    shuffleProper() {
+        // Grap a copy of the board.
+        let board = this.state.board;
+        // Shuffle it.
+        board.shuffle(10);
+        // Update the state.
+        this.setState({board: board});
     }
 
     /**
@@ -228,7 +243,7 @@ class TileBoard extends Component {
                         <div className="tile">{value.toString()}</div>
                     ))}
                 </div>
-                <button onClick={this.shuffle.bind(this)}>Shuffle</button>
+                <button onClick={this.shuffleProper.bind(this)}>Shuffle</button>
                 <button onClick={this.solve.bind(this)}>Solve</button>
             </div>
         )

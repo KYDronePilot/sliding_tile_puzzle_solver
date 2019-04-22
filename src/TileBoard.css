@@ -1,7 +1,7 @@
 .tile-board {
     display: inline-block;
-    height: 304px;
-    width: 304px;
+    height: 406px;
+    width: 406px;
     border: 2px solid black;
 }
 
