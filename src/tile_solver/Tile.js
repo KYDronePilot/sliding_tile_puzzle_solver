@@ -18,6 +18,9 @@ export default class Tile {
      * @return {string} The formatted tile symbol
      */
     toString() {
+        // Blank if the blank tile.
+        if (this.symbol === -1)
+            return "";
         return `Tile ${this.symbol}`;
     }
 
@@ -48,14 +51,14 @@ export default class Tile {
 }
 
 
-if (!module.parent) {
-    // console.log(tiles);
-    let tile = new Tile(5);
-    // toString() test.
-    assert.strictEqual("Tile 5", tile.toString());
-    // hash() test.
-    assert.strictEqual("5", tile.hash());
-    // copy() test.
-    let tile2 = tile.copy();
-    assert.notStrictEqual(tile, tile2);
-}
+// if (!module.parent) {
+//     // console.log(tiles);
+//     let tile = new Tile(5);
+//     // toString() test.
+//     assert.strictEqual("Tile 5", tile.toString());
+//     // hash() test.
+//     assert.strictEqual("5", tile.hash());
+//     // copy() test.
+//     let tile2 = tile.copy();
+//     assert.notStrictEqual(tile, tile2);
+// }

@@ -65,21 +65,30 @@ export default class AStarSolver {
     /**
      * Traverse up the tree to find the solution moves.
      * @param leaf {BoardNode} - The leaf node to traverse up
-     * @return {string} Formatted description of moves to make
+     * @return {Array} Directions that need to be moved
      */
-    static getPath(leaf) {
-        let solutionBoards = [];
+    static getPathArray(leaf) {
+        let solutionBoards = [leaf];
         // First, get the boards in the solution path.
         let walk = leaf;
         while (walk.parent_node !== null) {
             walk = walk.parent_node;
             solutionBoards.push(walk);
         }
-        // Format the moves that need to be made.
+        // Return moves in proper format.
         solutionBoards.reverse();
-        return solutionBoards.splice(1).map(value => {
-            return value.last_direction.toString();
-        }).join(", ");
+        return solutionBoards.splice(1).map(value =>
+            value.last_direction
+        );
+    }
+
+    /**
+     * Format the path array to be readable.
+     * @param path {Array} - The path to format
+     * @return {string} The formatted path
+     */
+    static getPath(path) {
+        return path.join(", ");
     }
 
     /**
@@ -100,30 +109,30 @@ export default class AStarSolver {
         }
     }
 }
-
-if (!module.parent) {
-    var count = 0;
-    let tiles = [
-        new Tile(1),
-        new Tile(-1),
-        new Tile(7),
-        new Tile(5),
-        new Tile(4),
-        new Tile(6),
-        new Tile(8),
-        new Tile(2),
-        new Tile(3),
-    ];
-    let solved_board = new Board(3);
-    // console.log(solved_board);
-    let unsolvedBoard = new BoardNode(3, solved_board, 0, null, tiles);
-    unsolvedBoard.blank_index = 1;
-    let solver = new AStarSolver(unsolvedBoard);
-
-
-    // throw "";
-    let solvedLeaf = solver.solve();
-    console.log(AStarSolver.getPath(solvedLeaf));
-    console.log("Success!");
-    console.log(count);
-}
+//
+// if (!module.parent) {
+//     var count = 0;
+//     let tiles = [
+//         new Tile(1),
+//         new Tile(-1),
+//         new Tile(7),
+//         new Tile(5),
+//         new Tile(4),
+//         new Tile(6),
+//         new Tile(8),
+//         new Tile(2),
+//         new Tile(3),
+//     ];
+//     let solved_board = new Board(3);
+//     // console.log(solved_board);
+//     let unsolvedBoard = new BoardNode(3, solved_board, 0, null, tiles);
+//     unsolvedBoard.blank_index = 1;
+//     let solver = new AStarSolver(unsolvedBoard);
+//
+//
+//     // throw "";
+//     let solvedLeaf = solver.solve();
+//     console.log(AStarSolver.getPath(solvedLeaf));
+//     console.log("Success!");
+//     console.log(count);
+// }

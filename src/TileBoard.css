@@ -22,6 +22,25 @@
     background: #eee;
 }
 
+.win {
+    -webkit-animation: winner 2s infinite;
+            animation: transform 0.2s, background 0.2s;
+}
+
+.highlight,
+.move-up,
+.move-down,
+.move-left,
+.move-right {
+    background: #fdd !important;
+    -webkit-transition: -webkit-transform 0.3s, background 0.3s;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.highlight {
+    background: #fff;
+}
+
 .move-up {
     -webkit-transform: translateY(-100px);
     transform: translateY(-100px);
@@ -41,3 +60,14 @@
     -webkit-transform: translateX(100px);
     transform: translateX(100px);
 }
+
+/*@keyframes winner {*/
+/*    0% {background: #fdd;}*/
+/*    50% {background: #fff;}*/
+/*    100% {background: #fdd;}*/
+/*}*/
+
+/*@keyframes highlight {*/
+/*    0% {background: #fdd;}*/
+/*    100% {background: #fff;}*/
+/*}*/

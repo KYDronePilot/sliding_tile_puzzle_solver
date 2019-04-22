@@ -111,6 +111,33 @@ export default class Board {
     }
 
     /**
+     * Get the index to move to, given a position and direction
+     * @param position {number} - Position of tile
+     * @param direction {string} - Direction to move to
+     */
+    translate(position, direction) {
+        if (direction === Up)
+            return position - this.n;
+        if (direction === Down)
+            return position + this.n;
+        if (direction === Left)
+            return position - 1;
+        if (direction === Right)
+            return position + 1;
+    }
+
+    /**
+     * Update index of the blank tile.
+     * @return {null}
+     */
+    updateBlankIndex() {
+        this.blank_index = -1;
+        for (let i = 0; i < this.tiles.length; i++)
+            if (this.tiles[i].symbol === -1)
+                this.blank_index = i;
+    }
+
+    /**
      * Get the manhattan cost of the current board compared with the solved board.
      * @return {number} Manhattan cost of board
      */
@@ -206,57 +233,57 @@ export default class Board {
     }
 }
 
-if (!module.parent) {
-    let tiles = [
-        new Tile(1),
-        new Tile(-1),
-        new Tile(7),
-        new Tile(5),
-        new Tile(4),
-        new Tile(6),
-        new Tile(8),
-        new Tile(2),
-        new Tile(3),
-    ];
-    let solved_board = new Board(3);
-    // console.log(solved_board);
-    let board = new Board(3, solved_board, tiles);
-    board.blank_index = 1;
-    // console.log(board);
-    // Test toString()
-    assert.strictEqual(
-        board.toString(),
-        "Tile 1, Tile -1, Tile 7\n" +
-        "Tile 5, Tile 4, Tile 6\n" +
-        "Tile 8, Tile 2, Tile 3\n"
-    );
-    // Test equals() method.
-    let board2 = new Board(3, solved_board, tiles);
-    assert.strictEqual(board.equals(board2), true);
-    assert.strictEqual(board.equals(new Board(3, solved_board)), false);
-    // Test hash() method.
-    assert.strictEqual(board.hash(), "1-17546823");
-    // Test manhattanCost() method.
-    assert.strictEqual(board.manhattanCost(), 11);
-    // Test isSolved()
-    assert.strictEqual(board.isSolved(), false);
-    assert.strictEqual(new Board(3, solved_board).isSolved(), true);
-    // Test isValidMove()
-    assert.strictEqual(board.isValidMove(Board.Right), true);
-    assert.strictEqual(board.isValidMove(Board.Left), true);
-    assert.strictEqual(board.isValidMove(Board.Up), false);
-    assert.strictEqual(board.isValidMove(Board.Down), true);
-    // Test getMoves()
-    let moves = board.getMoves();
-    assert.strictEqual(moves[0], Down);
-    assert.strictEqual(moves[1], Left);
-    assert.strictEqual(moves[2], Right);
-    // Test moveSpace()
-    board.moveSpace(Down);
-    assert.strictEqual(
-        board.toString(),
-        "Tile 1, Tile 4, Tile 7\n" +
-        "Tile 5, Tile -1, Tile 6\n" +
-        "Tile 8, Tile 2, Tile 3\n"
-    )
-}
+// if (!module.parent) {
+//     let tiles = [
+//         new Tile(1),
+//         new Tile(-1),
+//         new Tile(7),
+//         new Tile(5),
+//         new Tile(4),
+//         new Tile(6),
+//         new Tile(8),
+//         new Tile(2),
+//         new Tile(3),
+//     ];
+//     let solved_board = new Board(3);
+//     // console.log(solved_board);
+//     let board = new Board(3, solved_board, tiles);
+//     board.blank_index = 1;
+//     // console.log(board);
+//     // Test toString()
+//     assert.strictEqual(
+//         board.toString(),
+//         "Tile 1, Tile -1, Tile 7\n" +
+//         "Tile 5, Tile 4, Tile 6\n" +
+//         "Tile 8, Tile 2, Tile 3\n"
+//     );
+//     // Test equals() method.
+//     let board2 = new Board(3, solved_board, tiles);
+//     assert.strictEqual(board.equals(board2), true);
+//     assert.strictEqual(board.equals(new Board(3, solved_board)), false);
+//     // Test hash() method.
+//     assert.strictEqual(board.hash(), "1-17546823");
+//     // Test manhattanCost() method.
+//     assert.strictEqual(board.manhattanCost(), 11);
+//     // Test isSolved()
+//     assert.strictEqual(board.isSolved(), false);
+//     assert.strictEqual(new Board(3, solved_board).isSolved(), true);
+//     // Test isValidMove()
+//     assert.strictEqual(board.isValidMove(Board.Right), true);
+//     assert.strictEqual(board.isValidMove(Board.Left), true);
+//     assert.strictEqual(board.isValidMove(Board.Up), false);
+//     assert.strictEqual(board.isValidMove(Board.Down), true);
+//     // Test getMoves()
+//     let moves = board.getMoves();
+//     assert.strictEqual(moves[0], Down);
+//     assert.strictEqual(moves[1], Left);
+//     assert.strictEqual(moves[2], Right);
+//     // Test moveSpace()
+//     board.moveSpace(Down);
+//     assert.strictEqual(
+//         board.toString(),
+//         "Tile 1, Tile 4, Tile 7\n" +
+//         "Tile 5, Tile -1, Tile 6\n" +
+//         "Tile 8, Tile 2, Tile 3\n"
+//     )
+// }
