@@ -11,7 +11,7 @@ run the app:
 
 1. Download and install node.js
 2. Go into the main project directory (where this file is located)
-3. Run `npm run install`
+3. Run `npm install`
 4. Run `npm run start`
 
 You browser should now be launched with the program being displayed.
