@@ -1,10 +1,4 @@
 import Board from "./Board";
-import Tile from "./Tile"
-import assert from "assert";
-
-// var assert = require("assert");
-// var Tile = require("./Tile");
-// var Tile = require("./Tile");
 
 
 /**
@@ -23,7 +17,6 @@ export default class BoardNode extends Board {
      */
     constructor(n, solved_board, depth, parent, tiles = null) {
         super(n, solved_board, tiles);
-        this.new_boards = [];
         this.depth = depth;
         this.cost = -1;
         this.parent_node = parent;
@@ -57,7 +50,7 @@ export default class BoardNode extends Board {
      * @return {Array} The new board leaves
      */
     getMoveLeaves(previousBoards) {
-        this.new_boards = [];
+        let new_boards = [];
         let moves = this.getMoves();
         for (let i = 0; i < moves.length; i++) {
             // New node for this move.
@@ -72,36 +65,8 @@ export default class BoardNode extends Board {
             // Calculate the cost.
             newNode.calculateCost();
             // Add to resulting boards.
-            this.new_boards.push(newNode);
+            new_boards.push(newNode);
         }
-        return this.new_boards;
+        return new_boards;
     }
-}
-
-if (!module.parent) {
-    let tiles = [
-        new Tile(1),
-        new Tile(-1),
-        new Tile(7),
-        new Tile(5),
-        new Tile(4),
-        new Tile(6),
-        new Tile(8),
-        new Tile(2),
-        new Tile(3),
-    ];
-    let solved_board = new Board(3);
-    // console.log(solved_board);
-    let unsolvedBoard = new BoardNode(3, solved_board, 0, null, tiles);
-    unsolvedBoard.blank_index = 1;
-    // Test copy()
-    let boardNodeCopy = unsolvedBoard.copy();
-    assert.notStrictEqual(unsolvedBoard, boardNodeCopy);
-    // Test calculateCost()
-    unsolvedBoard.calculateCost();
-    assert.strictEqual(unsolvedBoard.cost, 11);
-    let boards = unsolvedBoard.getMoveLeaves({});
-    for (let i = 0; i < boards.length; i++)
-        console.log(boards[i].toString());
-    // console.log(unsolvedBoard.getMoveLeaves({}))
 }

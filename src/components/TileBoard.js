@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Tile from '../tile_solver/Tile';
 import BoardNode from '../tile_solver/BoardNode';
 import Board from '../tile_solver/Board';
 import AStarSolver from '../tile_solver/AStarSolver';
-// import Tile from './Tile';
 import '../TileBoard.css'
+
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -87,21 +87,6 @@ class TileBoard extends Component {
     }
 
     /**
-     * Shuffle the tiles, updating state when complete.
-     * @return {null}
-     */
-    shuffle() {
-        // Get the board.
-        let board = this.state.board;
-        // Shuffle the tiles.
-        this.shuffleTiles(board.tiles);
-        // Update state.
-        this.setState(() => ({
-            board: board
-        }));
-    }
-
-    /**
      * Shuffle using valid moves.
      * @return {null}
      */
@@ -151,16 +136,9 @@ class TileBoard extends Component {
         console.log(moves);
         // Solve the board using those moves.
         this.runSolutionMoves(board, moves)
-            .then(() => {console.log("success!")});
-    }
-
-    /**
-     * Swap two tiles.
-     * @param tile1 {number} - The first tile.
-     * @param tile2 {number} - The second tile.
-     */
-    swapTiles(tile1, tile2) {
-
+            .then(() => {
+                console.log("success!")
+            });
     }
 
     /**
@@ -196,55 +174,23 @@ class TileBoard extends Component {
         }, 300);
     }
 
-    /**
-     * Check if a tile can move and
-     * @param tile_i
-     */
-    canTileMove(tile_i) {
-
-    }
-
     componentDidMount() {
-        // TileBoard.setup()
-        //     .then(result => this.setState(state => ({
-        //         solution: result
-        //     })));
         this.generateBoard();
     }
-
-    // static async setup() {
-    //     let tiles = [
-    //         new Tile(1),
-    //         new Tile(-1),
-    //         new Tile(7),
-    //         new Tile(5),
-    //         new Tile(4),
-    //         new Tile(6),
-    //         new Tile(8),
-    //         new Tile(2),
-    //         new Tile(3),
-    //     ];
-    //     let solved_board = new Board(3);
-    //     let unsolvedBoard = new BoardNode(3, solved_board, 0, null, tiles);
-    //     unsolvedBoard.blank_index = 1;
-    //     let solver = new AStarSolver(unsolvedBoard);
-    //     let solvedLeaf = solver.solve();
-    //     console.log("Success!");
-    //     return AStarSolver.getPath(solvedLeaf);
-    // }
-
-    // moveTile(direction, )
 
     render() {
         return (
             <div>
                 <div className="tile-board">
-                    {this.state.board.tiles.map(value => (
-                        <div className="tile">{value.toString()}</div>
+                    {this.state.board.tiles.map((value, index, array) => (
+                        <img
+                            src={`logo_files/row-${Math.floor((value.symbol - 1) / this.state.n) + 1}-col-${(value.symbol - 1) % this.state.n + 1}.jpg`}
+                            height={100} width={100} className="tile"
+                        />
                     ))}
                 </div>
                 <button onClick={this.shuffleProper.bind(this)}>Shuffle</button>
-                <button onClick={this.solve.bind(this)}>Solve</button>
+                <button onClick={() => setTimeout(this.solve.bind(this), 1)}>Solve</button>
             </div>
         )
     }

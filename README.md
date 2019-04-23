@@ -1,68 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# A Star Tile Puzzle Solver
 
-## Available Scripts
+This is a React JS application for solving the 15-tile puzzle using the A* searching algorithm.
 
-In the project directory, you can run:
+*Note*: The program is not perfect and will freeze up occasionally, depending on the number of times the board has been
+shuffled, and on random chance. (This can freeze the browser)
 
-### `npm start`
+## Usage
+The program is built with react and needs specialized components to run properly. Please follow these instructions to
+run the app:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Download and install node.js
+2. Go into the main project directory (where this file is located)
+3. Run `npm run install`
+4. Run `npm run start`
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+You browser should now be launched with the program being displayed.
 
-### `npm test`
+Click the solve button and watch it be solved.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Algorithm
+The algorithm for solving this problem is a simple implementation of the A* search algorithm. It maintains a priority
+queue of board leaves of the solution paths tree. This priority queue is prioritized by the node with the lowest heuristic
+value, which is the depth in the tree + the manhattan distance for each of the nodes compared with the solved version of
+the board. Here are the basics steps of operation:
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ - Remove a board from the priority queue.
+ - If solved, exit.
+ - Generate new boards for each of the possible moves that can be made from that board.
+ - If any of those boards have been seen before, discard.
+ - Add new boards to the priority queue.

@@ -1,6 +1,3 @@
-import assert from "assert";
-// var assert = require("assert");
-
 /**
  * Simple representation of a tile in the board.
  */
@@ -49,16 +46,3 @@ export default class Tile {
         return new Tile(this.symbol);
     }
 }
-
-
-// if (!module.parent) {
-//     // console.log(tiles);
-//     let tile = new Tile(5);
-//     // toString() test.
-//     assert.strictEqual("Tile 5", tile.toString());
-//     // hash() test.
-//     assert.strictEqual("5", tile.hash());
-//     // copy() test.
-//     let tile2 = tile.copy();
-//     assert.notStrictEqual(tile, tile2);
-// }
