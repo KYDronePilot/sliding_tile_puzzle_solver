@@ -1,4 +1,9 @@
 /**
+ * Symbol for blank tile.
+ */
+export const BLANK_TILE = -1;
+
+/**
  * Simple representation of a tile in the board.
  */
 export default class Tile {
@@ -15,8 +20,8 @@ export default class Tile {
      * @return {string} The formatted tile symbol
      */
     toString() {
-        // Blank if the blank tile.
-        if (this.symbol === -1)
+        // Blank if tile is blank.
+        if (this.isBlank())
             return "";
         return `Tile ${this.symbol}`;
     }
@@ -44,5 +49,13 @@ export default class Tile {
      */
     copy() {
         return new Tile(this.symbol);
+    }
+
+    /**
+     * Check if tile is blank.
+     * @return {boolean} - Whether or not the tile is blank
+     */
+    isBlank() {
+        return this.symbol === BLANK_TILE;
     }
 }
