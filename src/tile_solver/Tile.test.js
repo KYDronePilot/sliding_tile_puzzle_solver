@@ -13,10 +13,10 @@ test("Tile construction", () => {
 });
 
 
-test("Tile string formatting", () => {
+test("Tile to string", () => {
     expect(tile.toString()).toBe("Tile 1");
     let tile_2 = new Tile(BLANK_TILE);
-    expect(tile_2.toString()).toBe("");
+    expect(tile_2.toString()).toBe("      ");
 });
 
 test("Tile equivalence", () => {

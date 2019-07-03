@@ -22,7 +22,7 @@ export default class Tile {
     toString() {
         // Blank if tile is blank.
         if (this.isBlank())
-            return "";
+            return "      ";
         return `Tile ${this.symbol}`;
     }
 
