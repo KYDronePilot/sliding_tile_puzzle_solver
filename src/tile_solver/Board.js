@@ -57,13 +57,8 @@ export default class Board {
         if (tiles !== null)
             this.tiles = tiles;
         // Else, generate them.
-        else {
-            this.tiles = [];
-            for (let i = 1; i < this.n2; i++)
-                this.tiles.push(new Tile(i));
-            // Add on last blank tile.
-            this.tiles.push(new Tile(-1));
-        }
+        else
+            this.tiles = Tile.generateTiles(n);
         this.blankIndex = this.getBlankIndex();
     }
 
@@ -159,6 +154,8 @@ export default class Board {
             // Perform that move.
             this.moveBlankTile(move);
         }
+        // Update the blank index
+        this.blankIndex = this.getBlankIndex();
     }
 
     /**
@@ -168,18 +165,6 @@ export default class Board {
      */
     translate(position, direction) {
         return TranslateIndex[direction](position, this.n);
-    }
-
-    /**
-     * Update index of the blank tile.
-     * @deprecated
-     * @return {null}
-     */
-    updateBlankIndex() {
-        this.blankIndex = -1;
-        for (let i = 0; i < this.tiles.length; i++)
-            if (this.tiles[i].symbol === -1)
-                this.blankIndex = i;
     }
 
     /**
@@ -250,7 +235,6 @@ export default class Board {
                 unsolvedRowMap,
                 unsolvedColMap
             );
-        console.log(`Conflicts: ${total}`);
         return total;
     }
 

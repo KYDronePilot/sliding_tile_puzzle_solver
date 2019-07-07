@@ -2,40 +2,38 @@ import PriorityQueue from "js-priority-queue";
 
 
 /**
- * Main management class for solving the tile problem using the A* algorithm.
+ * Main management class for solving sliding tile puzzle using the A* search algorithm.
  * @author Michael Galliers
  */
 export default class AStarSolver {
 
     /**
-     * Constructs the solver.
+     * Construct the solver.
      * @param board {BoardNode} - The board to be solved
      */
     constructor(board) {
         this.root = board;
         this.boardLeaves = new PriorityQueue({
-            comparator: (a, b) => {
-                return a.cost - b.cost
-            }
+            comparator: (a, b) => a.cost - b.cost
         });
         this.boardLeaves.queue(board);
-        this.previousBoards = {};
     }
 
     /**
-     * Traverse up the tree to find the solution moves.
-     * @param leaf {BoardNode} - The leaf node to traverse up
+     * Get moves to solve the puzzle.
+     * - Traverses up the state-space tree, starting from the solution leaf
+     * @param solutionLeaf {BoardNode} - The solution leaf to start traversing
      * @return {Array} Directions that need to be moved
      */
-    static getPathArray(leaf) {
-        let solutionBoards = [leaf];
-        // First, get the boards in the solution path.
-        let walk = leaf;
+    static getSolutionMoves(solutionLeaf) {
+        let solutionBoards = [solutionLeaf];
+        // First, get the boards in the solution path
+        let walk = solutionLeaf;
         while (walk.parent_node !== null) {
             walk = walk.parent_node;
             solutionBoards.push(walk);
         }
-        // Return moves in proper format.
+        // Return moves in proper format
         solutionBoards.reverse();
         return solutionBoards.splice(1).map(value =>
             value.last_direction
@@ -44,17 +42,15 @@ export default class AStarSolver {
 
     /**
      * Generate next moves for a leaf.
-     * @param boardLeaf {BoardNode} - Tile node to generate moves from
+     * @param boardLeaf {BoardNode} - Board node to generate moves from
      * @return {null}
      */
     generateNextMoves(boardLeaf) {
-        // Get new decision leaves.
-        let newLeaves = boardLeaf.getMoveLeaves(this.previousBoards);
-        // Add these new leaves to previous boards that have been seen.
-        for (let i = 0; i < newLeaves.length; i++) {
-            this.previousBoards[newLeaves[i].hash()] = newLeaves[i].hash();
-            // Add in the new leaves.
-            this.boardLeaves.queue(newLeaves[i]);
+        // Get new decision leaves
+        let newLeaves = boardLeaf.getMoveLeaves();
+        // Add these new leaves to leaves PQ
+        for (let leaf of newLeaves) {
+            this.boardLeaves.queue(leaf);
         }
     }
 
@@ -69,7 +65,7 @@ export default class AStarSolver {
             let nextBestLeaf = this.boardLeaves.dequeue();
             // let nextBestLeaf = this.getNextBestLeaf();
             // DEBUG
-            console.log(nextBestLeaf.manhattanCost());
+            // console.log(nextBestLeaf.manhattanCost());
             // Return solved leaf if solved.
             if (nextBestLeaf.isSolved())
                 return nextBestLeaf;

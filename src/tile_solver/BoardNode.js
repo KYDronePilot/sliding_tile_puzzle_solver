@@ -19,13 +19,27 @@ export default class BoardNode extends Board {
     constructor(n, solved_board, depth, parent, tiles = null) {
         super(n, solved_board, tiles);
         this.depth = depth;
-        this.cost = -1;
         this.parent_node = parent;
+        this.cost = this.getCost();
+    }
+
+    /**
+     * Create the root game board node.
+     * @param n {number} - Size of board
+     * @param shuffleN {number} - Number of times to shuffle the board
+     * @return {BoardNode} - New game board
+     */
+    static createGameBoard(n, shuffleN) {
+        // Create solved and unsolved boards
+        let solvedBoard = new Board(n);
+        let unsolvedBoard = new BoardNode(n, solvedBoard, 0, null);
+        // Shuffle tiles
+        unsolvedBoard.shuffle(shuffleN);
+        return unsolvedBoard;
     }
 
     /**
      * Copy this object.
-     * @deprecated Fix depth issue!!!
      * @return {BoardNode} Copied object
      */
     copy() {
@@ -39,6 +53,14 @@ export default class BoardNode extends Board {
         newBoardNode.last_direction = this.last_direction;
         newBoardNode.blankIndex = this.blankIndex;
         return newBoardNode;
+    }
+
+    /**
+     * Reset the previous boards object.
+     * @static
+     */
+    static resetPreviousBoards() {
+        BoardNode.previousBoards = {};
     }
 
     /**

@@ -40,3 +40,9 @@ test("Tile is blank", () => {
     let tile_2 = new Tile(BLANK_TILE);
     expect(tile_2.isBlank()).toBe(true);
 });
+
+test("Tile generate tiles",() => {
+    expect(Tile.generateTiles(2)).toEqual([
+        new Tile(1), new Tile(2), new Tile(3), new Tile(-1)
+    ]);
+});

@@ -58,4 +58,20 @@ export default class Tile {
     isBlank() {
         return this.symbol === BLANK_TILE;
     }
+
+    /**
+     * Generate tiles for a solved game board.
+     * @param n {number} - Number of tiles to generate
+     * @return {Array} generated tiles
+     */
+    static generateTiles(n) {
+        let tiles = [];
+        // Generate the first n - 1 tiles
+        for (let i = 1; i < n ** 2; i++) {
+            tiles.push(new Tile(i));
+        }
+        // Add on the blank tile
+        tiles.push(new Tile(-1));
+        return tiles;
+    }
 }

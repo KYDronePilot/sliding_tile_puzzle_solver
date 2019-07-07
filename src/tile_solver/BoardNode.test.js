@@ -16,10 +16,22 @@ beforeEach(() => {
     boardNode = new BoardNode(3, solvedBoard, 0, null, tiles);
 });
 
+afterEach(() => {
+    BoardNode.resetPreviousBoards();
+});
+
 test("BoardNode construction", () => {
     expect(boardNode.depth).toBe(0);
     expect(boardNode.cost).toBe(-1);
     expect(boardNode.parent_node).toBe(null);
+});
+
+test("BoardNode create game board", () => {
+    let unsolvedBoard = BoardNode.createGameBoard(3, 0);
+    expect(unsolvedBoard.solved_board.equals(solvedBoard)).toEqual(true);
+    expect(unsolvedBoard.equals(solvedBoard)).toEqual(true);
+    unsolvedBoard = BoardNode.createGameBoard(3, 1);
+    expect(unsolvedBoard.equals(solvedBoard)).toEqual(false);
 });
 
 test("BoardNode copy", () => {
@@ -34,6 +46,13 @@ test("BoardNode copy", () => {
     expect(boardNode.blankIndex).toBe(newBoardNode.blankIndex);
 });
 
+test("BoardNode reset previous boards", () => {
+    BoardNode.previousBoards["test"] = null;
+    expect("test" in BoardNode.previousBoards).toBe(true);
+    BoardNode.resetPreviousBoards();
+    expect("test" in BoardNode.previousBoards).toBe(false);
+});
+
 test("BoardNode previously encountered", () => {
     expect(boardNode.previouslyEncountered()).toBe(false);
     BoardNode.previousBoards[boardNode.hash()] = null;
@@ -41,7 +60,6 @@ test("BoardNode previously encountered", () => {
 });
 
 test("BoardNode add to previously encountered", () => {
-    BoardNode.previousBoards = {};
     expect(boardNode.previouslyEncountered()).toBe(false);
     boardNode.addToPreviouslyEncountered();
     expect(boardNode.previouslyEncountered()).toBe(true);
