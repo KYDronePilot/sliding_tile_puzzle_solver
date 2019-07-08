@@ -9,7 +9,7 @@ import '../TileBoard.css'
 // Board size
 let BOARD_N = 4;
 // Initial number of times to shuffle
-let INITIAL_SHUFFLE_N = 0;
+let INITIAL_SHUFFLE_N = 10000;
 // Number of times to shuffle with each button click
 let SHUFFLE_N = 10;
 // Visual move timeout (ms)
