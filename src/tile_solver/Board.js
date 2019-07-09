@@ -81,6 +81,7 @@ export default class Board {
      * @param row {number} - Row index
      * @param col {number} - Column index
      * @param board {Board} - The board to index (default: this)
+     * @return {Tile} - Tile at index specified
      */
     index(row, col, board = null) {
         if (board === null)
