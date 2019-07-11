@@ -21,6 +21,18 @@ lazy_static! {
     };
 }
 
+lazy_static! {
+    /// Tile index translations based on moves
+    pub static ref TRANSLATE_INDEX: HashMap<&'static str, &'static Fn()> = {
+        let mut m = HashMap::new();
+        m.insert(UP, &|positon, n| {position - n});
+        m.insert(DOWN, &|positon1, n| {position1 + n});
+        m.insert(LEFT, &|positon2, n| {position2 - 1});
+        m.insert(RIGHT, &|positon3, n| {position3 + 1});
+        m
+    };
+}
+
 /// All tile moves
 const MOVES: [&str; 4] = [UP, DOWN, LEFT, RIGHT];
 
@@ -167,6 +179,14 @@ impl Board<'_> {
             }
         }
         return moves;
+    }
+
+    /// Move the empty space in the specified direction.
+    ///
+    /// # Parameters
+    /// * `move_direction` - Direction to move the blank tile
+    pub fn move_blank_tile(&self, move_direction: &str) {
+
     }
 }
 
@@ -400,5 +420,11 @@ mod tests {
             Some(&solved_board),
             tiles_3.clone());
         assert_eq!(board_3.get_moves(), [DOWN, RIGHT]);
+    }
+
+    /// Test board index translation
+    #[test]
+    fn test_board_index_translation() {
+        assert_eq!(TRANSLATE_INDEX.get(UP)(4, 3), 1);
     }
 }
