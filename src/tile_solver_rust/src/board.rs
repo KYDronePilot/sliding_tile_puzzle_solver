@@ -2,6 +2,8 @@ use std::collections::HashMap;
 
 use super::tile::BLANK_TILE;
 use super::tile::Tile;
+use rand::seq::SliceRandom;
+use std::hash::{Hash, Hasher};
 
 /// Tile move directions
 const UP: &'static str = "up";
@@ -17,18 +19,6 @@ lazy_static! {
         m.insert(DOWN, UP);
         m.insert(LEFT, RIGHT);
         m.insert(RIGHT, LEFT);
-        m
-    };
-}
-
-lazy_static! {
-    /// Tile index translations based on moves
-    pub static ref TRANSLATE_INDEX: HashMap<&'static str, &'static Fn()> = {
-        let mut m = HashMap::new();
-        m.insert(UP, &|positon, n| {position - n});
-        m.insert(DOWN, &|positon1, n| {position1 + n});
-        m.insert(LEFT, &|positon2, n| {position2 - 1});
-        m.insert(RIGHT, &|positon3, n| {position3 + 1});
         m
     };
 }
@@ -125,19 +115,24 @@ impl Board<'_> {
         board.tiles[(row * self.n + col) as usize]
     }
 
-//    /// Shuffle the tiles using valid moves to ensure the puzzle is solvable.
-//    ///
-//    /// # Parameters
-//    /// * `n` - Number of random moves to make
-//    pub fn shuffle(&mut self, n: i32) {
-//        for i in 0..n {
-//            // Update the blank index
-//            self.blank_index = self.get_blank_index();
-//            // Get all valid moves
-//            // TODO: Implement get_moves
-//            let moves = self.
-//        }
-//    }
+    /// Shuffle the tiles using valid moves to ensure the puzzle is solvable.
+    ///
+    /// # Parameters
+    /// * `n` - Number of random moves to make
+    pub fn shuffle(&mut self, n: i32) {
+        for _i in 0..n {
+            // Update the blank index
+            self.blank_index = self.get_blank_index();
+            // Get all valid moves
+            let moves: Vec<&'static str> = self.get_moves();
+            // Get a random move
+            let board_move: &'static str = *moves.choose(&mut rand::thread_rng()).unwrap();
+            // Perform that move
+            self.move_blank_tile(board_move);
+        }
+        // Update the blank index
+        self.blank_index = self.get_blank_index();
+    }
 
     /// Check if a move is valid.
     ///
@@ -171,8 +166,8 @@ impl Board<'_> {
     ///
     /// # Returns
     /// The available moves that can be made
-    pub fn get_moves(&self) -> Vec<&str> {
-        let mut moves: Vec<&str> = Vec::new();
+    pub fn get_moves(&self) -> Vec<&'static str> {
+        let mut moves: Vec<&'static str> = Vec::new();
         for tile_move in &MOVES {
             if self.is_valid_move(tile_move) {
                 moves.push(tile_move);
@@ -181,22 +176,101 @@ impl Board<'_> {
         return moves;
     }
 
+    /// Translate tile indices based on position and move direction.
+    ///
+    /// # Parameters
+    /// * `position` - Index of tile
+    /// * `move_direction` - Direction to move
+    ///
+    /// # Returns
+    /// Resulting index from translation
+    pub fn translate_index(&self, position: i32, move_direction: &str) -> i32 {
+        if move_direction == UP {
+            return position - self.n
+        }
+        if move_direction == DOWN {
+            return position + self.n
+        }
+        if move_direction == LEFT {
+            return position - 1
+        }
+        return position + 1
+    }
+
     /// Move the empty space in the specified direction.
     ///
     /// # Parameters
     /// * `move_direction` - Direction to move the blank tile
-    pub fn move_blank_tile(&self, move_direction: &str) {
+    pub fn move_blank_tile(&mut self, move_direction: &'static str) {
+        // Get index to swap with
+        let swap_i = self.translate_index(self.blank_index, move_direction);
+        self.tiles.swap(swap_i as usize, self.blank_index as usize);
+        // Update last move direction and blank index
+        self.last_direction = move_direction;
+        self.blank_index = swap_i;
+    }
 
+    /// Get the Manhattan cost of the current board compared with the solved board.
+    ///
+    /// # Returns
+    /// Manhattan cost of board
+    fn _manhattan_cost(&self) -> i32 {
+        let mut cost = 0;
+        // Check each tile
+        for i in 0..self.n2 {
+            // Do not use blank tile
+            if i == self.blank_index {
+                continue;
+            }
+            // Get index of tile in solved board
+            let mut solved_i = -1;
+            for j in 0..self.n2 {
+                if self.solved_board.unwrap().tiles[j as usize] == self.tiles[i as usize] {
+                    solved_i = j;
+                    break;
+                }
+            }
+            // Get distance for x-axis
+            cost += ((i % self.n) - (solved_i % self.n)).abs();
+            // Get distance for y-axis
+            cost += ((i / self.n) - (solved_i / self.n)).abs();
+        }
+        return cost;
+    }
+
+    /// Cost/heuristic function for board.
+    /// TODO: Add linear conflicts and a test
+    ///
+    /// # Returns
+    /// Cost for board
+    pub fn get_cost(&self) -> i32 {
+        self._manhattan_cost()
+    }
+
+    /// Check if the board is solved.
+    ///
+    /// # Returns
+    /// Whether the board is solved
+    pub fn is_solved(&self) -> bool {
+        self._manhattan_cost() == 0
     }
 }
 
 impl PartialEq for Board<'_> {
+    /// Custom equivalence function based only on tiles
     fn eq(&self, other: &Self) -> bool {
         self.tiles == other.tiles
     }
 }
 
 impl Eq for Board<'_> {}
+
+impl Hash for Board<'_> {
+    /// Custom hash function based only on tiles.
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        self.tiles.hash(state)
+    }
+}
 
 impl ToString for Board<'_> {
     fn to_string(&self) -> String {
@@ -425,6 +499,167 @@ mod tests {
     /// Test board index translation
     #[test]
     fn test_board_index_translation() {
-        assert_eq!(TRANSLATE_INDEX.get(UP)(4, 3), 1);
+        let solved_board = Board::new(3, None, vec![]);
+        let tiles = vec![
+            Tile::new(8), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(7), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
+        ];
+        let board = Board::new(
+            3,
+            Some(&solved_board),
+            tiles.clone());
+        assert_eq!(board.translate_index(0, DOWN), 3);
+        assert_eq!(board.translate_index(0, RIGHT), 1);
+        assert_eq!(board.translate_index(8, UP), 5);
+        assert_eq!(board.translate_index(8, LEFT), 7);
+    }
+
+    /// Test board move blank tile - UP
+    #[test]
+    fn test_board_move_blank_tile_up() {
+        let solved_board = Board::new(3, None, vec![]);
+        let tiles = vec![
+            Tile::new(8), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(7), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
+        ];
+        let mut board = Board::new(
+            3,
+            Some(&solved_board),
+            tiles.clone());
+        board.move_blank_tile(UP);
+        assert_eq!(board.tiles, vec![
+            Tile::new(8), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(7), Tile::new(BLANK_TILE),
+            Tile::new(5), Tile::new(2), Tile::new(1)
+        ])
+    }
+
+    /// Test board move blank tile - LEFT
+    #[test]
+    fn test_board_move_blank_tile_left() {
+        let solved_board = Board::new(3, None, vec![]);
+        let tiles = vec![
+            Tile::new(8), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(7), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
+        ];
+        let mut board = Board::new(
+            3,
+            Some(&solved_board),
+            tiles.clone());
+        board.move_blank_tile(LEFT);
+        assert_eq!(board.tiles, vec![
+            Tile::new(8), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(7), Tile::new(1),
+            Tile::new(5), Tile::new(BLANK_TILE), Tile::new(2)
+        ])
+    }
+
+    /// Test board move blank tile - DOWN
+    #[test]
+    fn test_board_move_blank_tile_down() {
+        let solved_board = Board::new(3, None, vec![]);
+        let tiles = vec![
+            Tile::new(BLANK_TILE), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(8), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(7)
+        ];
+        let mut board = Board::new(
+            3,
+            Some(&solved_board),
+            tiles.clone());
+        board.move_blank_tile(DOWN);
+        assert_eq!(board.tiles, vec![
+            Tile::new(3), Tile::new(4), Tile::new(6),
+            Tile::new(BLANK_TILE), Tile::new(8), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(7)
+        ])
+    }
+
+    /// Test board move blank tile - RIGHT
+    #[test]
+    fn test_board_move_blank_tile_right() {
+        let solved_board = Board::new(3, None, vec![]);
+        let tiles = vec![
+            Tile::new(BLANK_TILE), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(8), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(7)
+        ];
+        let mut board = Board::new(
+            3,
+            Some(&solved_board),
+            tiles.clone());
+        board.move_blank_tile(RIGHT);
+        assert_eq!(board.tiles, vec![
+            Tile::new(4), Tile::new(BLANK_TILE), Tile::new(6),
+            Tile::new(3), Tile::new(8), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(7)
+        ])
+    }
+
+    /// Test board get manhattan cost
+    #[test]
+    fn test_board_get_manhattan_cost() {
+        let solved_board = Board::new(3, None, vec![]);
+        let tiles = vec![
+            Tile::new(8), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(7), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
+        ];
+        let board = Board::new(
+            3,
+            Some(&solved_board),
+            tiles.clone());
+        assert_eq!(board._manhattan_cost(), 18);
+    }
+
+    /// Test board shuffle
+    #[test]
+    fn test_board_shuffle() {
+        let solved_board = Board::new(3, None, vec![]);
+        let tiles = vec![
+            Tile::new(8), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(7), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
+        ];
+        let mut board = Board::new(
+            3,
+            Some(&solved_board),
+            tiles.clone());
+        board.shuffle(1000);
+        println!("{}", board.to_string());
+        assert_ne!(board.tiles, vec![
+            Tile::new(8), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(7), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
+        ]);
+    }
+
+    /// Test board is solved
+    #[test]
+    fn test_board_is_solved() {
+        let solved_board = Board::new(3, None, vec![]);
+        let tiles = vec![
+            Tile::new(8), Tile::new(4), Tile::new(6),
+            Tile::new(3), Tile::new(7), Tile::new(1),
+            Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
+        ];
+        let mut board = Board::new(
+            3,
+            Some(&solved_board),
+            tiles.clone());
+        assert!(!board.is_solved());
+        let tiles_2 = vec![
+            Tile::new(1), Tile::new(2), Tile::new(3),
+            Tile::new(4), Tile::new(5), Tile::new(6),
+            Tile::new(7), Tile::new(8), Tile::new(BLANK_TILE)
+        ];
+        let mut board_2 = Board::new(
+            3,
+            Some(&solved_board),
+            tiles_2.clone());
+        assert!(board_2.is_solved());
     }
 }
