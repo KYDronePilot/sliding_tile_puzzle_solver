@@ -192,3 +192,8 @@ test("Board move blank tile - RIGHT", () => {
         new Tile(5), new Tile(2), new Tile(7)
     ]);
 });
+
+test("General testing", () => {
+    let map = board._createTileColumnIndicesMap(board);
+    console.log(map);
+});
