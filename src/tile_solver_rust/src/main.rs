@@ -5,13 +5,14 @@ use tile::Tile;
 use board::Board;
 use board::*;
 use std::collections::{BinaryHeap, HashSet};
+use std::mem::size_of_val;
 
 #[macro_use]
 extern crate lazy_static;
 
-const N: i32 = 4;
-const SHUFFLE_N: i32 = 50;
-
+pub const N: i32 = 4;
+const SHUFFLE_N: i32 = 10000;
+pub static N2: i32 = 4;
 
 fn main() {
     // Priority queue for storing board leaves
@@ -19,34 +20,38 @@ fn main() {
     // For holding solved leaf
     let solved_leaf: Board;
     // Holds previously seen boards
-    let mut previous_boards: HashSet<Board> = HashSet::new();
+    let mut previous_boards: HashSet<String> = HashSet::new();
     // Create the game board
-    let solved_board = Board::new(N, None, -1, vec![]);
+    let solved_board = Board::new(N, None, -1, None);
     println!("{}", solved_board.to_string());
 //    let tiles = vec![
 //        Tile::new(8), Tile::new(4), Tile::new(6),
 //        Tile::new(3), Tile::new(7), Tile::new(1),
 //        Tile::new(5), Tile::new(2), Tile::new(-1)
 //    ];
-    let mut unsolved_board = Board::new(N, Some(&solved_board), 0, vec![]);
-    println!("{}", unsolved_board.to_string());
+    let mut unsolved_board = Board::new(N, Some(&solved_board), 0, None);
+//    println!("{}", unsolved_board.to_string());
     // Shuffle tiles
     unsolved_board.shuffle(SHUFFLE_N);
-    unsolved_board.cost = unsolved_board.get_cost();
+    unsolved_board.cost = unsolved_board.get_cost(&solved_board);
     unsolved_board.last_direction = '\0';
-    println!("{}", unsolved_board.to_string());
+//    println!("{}", unsolved_board.to_string());
+    previous_boards.insert(unsolved_board.path.clone());
+//    println!("{:?}", previous_boards);
     // Add root node to board leaves and previous boards
     board_leaves.push(unsolved_board.clone());
-    println!("{:?}", board_leaves);
-    previous_boards.insert(unsolved_board.clone());
-    println!("{:?}", previous_boards);
+//    println!("{:?}", board_leaves);
+    println!("{}", size_of_val(&board_leaves));
+    println!("{}", size_of_val(&solved_board));
+    println!("{}", size_of_val(&unsolved_board));
 
     // Solve the board using A star search
     loop {
         // Get the next best board leaf to expand
         let next_best_leaf = board_leaves.pop().unwrap();
+//        println!("{:?}", &next_best_leaf);
         // Get solved leaf if solved
-        if next_best_leaf.is_solved() {
+        if next_best_leaf.is_solved(&solved_board) {
             solved_leaf = next_best_leaf;
             break;
         }
@@ -62,20 +67,21 @@ fn main() {
         for tile_move in next_best_leaf.get_moves() {
             // New board for this move
             let mut new_board = next_best_leaf.clone();
+            new_board.path.push(tile_move);
             // Make move
             new_board.move_blank_tile(tile_move);
             // If resulting board has been seen before, skip it
-            if previous_boards.contains(&new_board) {
+            if previous_boards.contains(&new_board.path) {
                 continue;
             }
             // Setup board
-            new_board.path.push(tile_move);
             new_board.depth = next_best_leaf.depth + 1;
-            new_board.cost = new_board.get_cost();
+            new_board.cost = new_board.get_cost(&solved_board);
             board_leaves.push(new_board.clone());
             // Add to previously seen boards
-            previous_boards.insert(new_board);
+            previous_boards.insert(new_board.path.clone());
         }
+//        println!("{}", board_leaves.len());
     }
 //    for leaf in board_leaves.iter() {
 //        println!("{}", leaf.get_cost());

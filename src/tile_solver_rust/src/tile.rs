@@ -24,15 +24,17 @@ impl Tile {
     /// Generate tiles for a solved game board.
     /// * `n` - Number of tiles to generate
     /// Returns: Generated tiles
-    pub fn generate_tiles(n: &i32) -> Vec<Tile> {
-        let mut tiles: Vec<Tile> = Vec::new();
+    pub fn generate_tiles(n: i32) -> Box<[Tile]> {
+//        let mut tiles: Vec<Tile> = Vec::new();
+        let mut tiles: Vec<Tile> = Vec::with_capacity(n as usize);
+//        let mut tiles: [Tile; n] = [];
         // Generate the first n - 1 tiles
-        for i in 1..(*n * *n) {
-            tiles.push(Tile::new(i))
+        for i in 1..(n * n) {
+            tiles.push(Tile::new(i));
         }
         // Add on the blank tile
-        tiles.push(Tile::new(-1));
-        return tiles;
+        tiles.push(Tile::new(BLANK_TILE));
+        return tiles.into_boxed_slice();
     }
 }
 
@@ -89,8 +91,8 @@ mod tests {
     /// Test tile is blank
     #[test]
     fn test_tile_generate_tiles() {
-        let tiles = Tile::generate_tiles(&2);
-        assert_eq!(tiles, vec![Tile::new(1), Tile::new(2),
-                               Tile::new(3), Tile::new(-1)]);
+        let tiles = Tile::generate_tiles(2);
+        assert_eq!(tiles, [Tile::new(1), Tile::new(2),
+                           Tile::new(3), Tile::new(BLANK_TILE)]);
     }
 }

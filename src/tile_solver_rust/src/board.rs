@@ -41,12 +41,12 @@ const MOVES: [char; 4] = [UP, DOWN, LEFT, RIGHT];
 /// * `tiles` - Board tiles
 /// * `blank_index` - Index of blank tile on board
 #[derive(Debug, Clone)]
-pub struct Board<'a> {
+pub struct Board {
     n: i32,
     n2: i32,
     pub last_direction: char,
-    solved_board: Option<&'a Board<'a>>,
-    tiles: Vec<Tile>,
+//    solved_board: Option<&'a Board<'a>>,
+    tiles: Box<[Tile]>,
     blank_index: i32,
     pub depth: i32,
     //    pub parent_node: Option<&'a Board<'a>>,
@@ -54,7 +54,7 @@ pub struct Board<'a> {
     pub path: String,
 }
 
-impl Board<'_> {
+impl Board {
     /// Create a new board with optional tiles.
     ///
     /// # Parameters
@@ -63,17 +63,17 @@ impl Board<'_> {
     /// * `depth` - The depth of the board in the state-space tree
     /// * `parent_node` - The parent board from which this board was derived
     /// * `tiles` - Board tiles
-    pub fn new<'a>(n: i32, solved_board: Option<&'a Board>, depth: i32,
-                   mut tiles: Vec<Tile>) -> Board<'a> {
-        if tiles.is_empty() {
-            tiles = Tile::generate_tiles(&n);
+    pub fn new(n: i32, solved_board: Option<&Board>, depth: i32,
+                   mut tiles: Option<Box<[Tile]>>) -> Board {
+        if tiles == None {
+            tiles = Some(Tile::generate_tiles(n));
         }
         let mut board = Board {
             n,
             n2: n * n,
             last_direction: '\0',
-            solved_board,
-            tiles,
+//            solved_board,
+            tiles: tiles.unwrap(),
             blank_index: -1,
             depth,
             cost: -1,
@@ -81,7 +81,7 @@ impl Board<'_> {
         };
         board.blank_index = board.get_blank_index();
         if solved_board != None {
-            board.cost = board.get_cost();
+            board.cost = board.get_cost(solved_board.unwrap());
         }
         board
     }
@@ -109,8 +109,8 @@ impl Board<'_> {
 //    /// New game board
 //    pub fn create_game_board<'a>(n: i32, shuffle_n: i32) -> Board<'a> {
 //        // Create solved and unsolved boards
-//        let solved_board = Board::new(n, None, -1, None, vec![]);
-//        let mut unsolved_board = Board::new(n, Some(&solved_board), 0, None, vec![]);
+//        let solved_board = Board::new(n, None, -1, None, []);
+//        let mut unsolved_board = Board::new(n, Some(&solved_board), 0, None, []);
 //        // Shuffle tiles
 //        unsolved_board.shuffle(shuffle_n);
 //        unsolved_board
@@ -266,7 +266,7 @@ impl Board<'_> {
     ///
     /// # Returns
     /// Manhattan cost of board
-    pub fn _manhattan_cost(&self) -> i32 {
+    pub fn _manhattan_cost(&self, solved_board: &Board) -> i32 {
         let mut cost = 0;
         // Check each tile
         for i in 0..self.n2 {
@@ -277,7 +277,7 @@ impl Board<'_> {
             // Get index of tile in solved board
             let mut solved_i = -1;
             for j in 0..self.n2 {
-                if self.solved_board.unwrap().tiles[j as usize] == self.tiles[i as usize] {
+                if solved_board.tiles[j as usize] == self.tiles[i as usize] {
                     solved_i = j;
                     break;
                 }
@@ -294,29 +294,29 @@ impl Board<'_> {
     ///
     /// # Returns
     /// Cost for board
-    pub fn get_cost(&self) -> i32 {
-        self._manhattan_cost() + self._linear_conflicts() + self.depth
+    pub fn get_cost(&self, solved_board: &Board) -> i32 {
+        self._manhattan_cost(solved_board) + self.depth + self.linear_conflicts(solved_board)
     }
 
     /// Check if the board is solved.
     ///
     /// # Returns
     /// Whether the board is solved
-    pub fn is_solved(&self) -> bool {
-        self._manhattan_cost() == 0
+    pub fn is_solved(&self, solved_board: &Board) -> bool {
+        self._manhattan_cost(solved_board) == 0
     }
 
     /// Calculate the number of linear conflicts in the board.
     ///
     /// # Returns
     /// Linear conflicts in board
-    pub fn _linear_conflicts(&self) -> i32 {
+    pub fn linear_conflicts(&self, solved_board: &Board) -> i32 {
         // Create tile-index maps
         let solved_row_map = self._create_tile_row_indices_map(
-            self.solved_board.unwrap()
+            solved_board
         );
         let solved_col_map = self._create_tile_column_indices_map(
-            self.solved_board.unwrap()
+            solved_board
         );
         let unsolved_row_map = self._create_tile_row_indices_map(
             self
@@ -505,7 +505,7 @@ impl Board<'_> {
 //    /// # Returns
 //    /// The new board leaves
 //    pub fn get_move_leaves(self, previous_boards: &mut HashSet<Board>) {
-//        let mut new_boards: Vec<Board> = vec![];
+//        let mut new_boards: Vec<Board> = [];
 //        for tile_move in self.get_moves() {
 //            // New board for this move
 //            let mut new_board = self.clone();
@@ -527,23 +527,23 @@ impl Board<'_> {
 //    }
 }
 
-impl PartialEq for Board<'_> {
+impl PartialEq for Board {
     /// Custom equivalence function based only on tiles
     fn eq(&self, other: &Self) -> bool {
         self.tiles == other.tiles
     }
 }
 
-impl Eq for Board<'_> {}
+impl Eq for Board {}
 
-impl Hash for Board<'_> {
+impl Hash for Board {
     /// Custom hash function based only on tiles.
     fn hash<H: Hasher>(&self, state: &mut H) {
         self.tiles.hash(state)
     }
 }
 
-impl ToString for Board<'_> {
+impl ToString for Board {
     fn to_string(&self) -> String {
         let mut result: String = "".to_owned();
         for row in 0..self.n {
@@ -558,13 +558,13 @@ impl ToString for Board<'_> {
     }
 }
 
-impl Ord for Board<'_> {
+impl Ord for Board {
     fn cmp(&self, other: &Self) -> Ordering {
         other.cost.cmp(&self.cost)
     }
 }
 
-impl PartialOrd for Board<'_> {
+impl PartialOrd for Board {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
@@ -587,8 +587,8 @@ mod tests {
     /// Test board construction
     #[test]
     fn test_board_construction() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -597,17 +597,17 @@ mod tests {
             3,
             Some(&solved_board),
             -1,
-            tiles.clone());
+            Some(tiles.clone()));
         assert_eq!(board.n, 3);
         assert_eq!(board.n2, 9);
         assert_eq!(board.last_direction, '\0');
         assert_eq!(board.blank_index, 8);
-        assert_eq!(board.tiles, vec![
+        assert_eq!(board.tiles, [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
         ]);
-        assert_eq!(board.solved_board.unwrap().tiles, vec![
+        assert_eq!(board.solved_board.unwrap().tiles, [
             Tile::new(1), Tile::new(2), Tile::new(3),
             Tile::new(4), Tile::new(5), Tile::new(6),
             Tile::new(7), Tile::new(8), Tile::new(BLANK_TILE)
@@ -620,8 +620,8 @@ mod tests {
     /// Test board cloning
     #[test]
     fn test_board_clone() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -652,8 +652,8 @@ mod tests {
     /// Test board index
     #[test]
     fn test_board_index() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -673,8 +673,8 @@ mod tests {
     /// Test board to string
     #[test]
     fn test_board_to_string() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -693,8 +693,8 @@ mod tests {
     /// Test board get blank index
     #[test]
     fn test_board_get_blank_index() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(BLANK_TILE), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(7)
@@ -710,8 +710,8 @@ mod tests {
     /// Test board is valid move
     #[test]
     fn test_board_is_valid_move() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -725,7 +725,7 @@ mod tests {
         assert!(!board.is_valid_move(DOWN));
         assert!(board.is_valid_move(LEFT));
         assert!(!board.is_valid_move(RIGHT));
-        let tiles_2 = vec![
+        let tiles_2 = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(BLANK_TILE), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(7)
@@ -739,7 +739,7 @@ mod tests {
         assert!(board_2.is_valid_move(DOWN));
         assert!(board_2.is_valid_move(LEFT));
         assert!(board_2.is_valid_move(RIGHT));
-        let tiles_3 = vec![
+        let tiles_3 = [
             Tile::new(BLANK_TILE), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(8), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(7)
@@ -758,8 +758,8 @@ mod tests {
     /// Test board get moves
     #[test]
     fn test_board_get_moves() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -770,7 +770,7 @@ mod tests {
             -1,
             tiles.clone());
         assert_eq!(board.get_moves(), [UP, LEFT]);
-        let tiles_2 = vec![
+        let tiles_2 = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(BLANK_TILE), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(7)
@@ -781,7 +781,7 @@ mod tests {
             -1,
             tiles_2.clone());
         assert_eq!(board_2.get_moves(), [UP, DOWN, LEFT, RIGHT]);
-        let tiles_3 = vec![
+        let tiles_3 = [
             Tile::new(BLANK_TILE), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(8), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(7)
@@ -797,8 +797,8 @@ mod tests {
     /// Test board index translation
     #[test]
     fn test_board_index_translation() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -817,8 +817,8 @@ mod tests {
     /// Test board move blank tile - UP
     #[test]
     fn test_board_move_blank_tile_up() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -829,7 +829,7 @@ mod tests {
             -1,
             tiles.clone());
         board.move_blank_tile(UP);
-        assert_eq!(board.tiles, vec![
+        assert_eq!(board.tiles, [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(BLANK_TILE),
             Tile::new(5), Tile::new(2), Tile::new(1)
@@ -839,8 +839,8 @@ mod tests {
     /// Test board move blank tile - LEFT
     #[test]
     fn test_board_move_blank_tile_left() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -851,7 +851,7 @@ mod tests {
             -1,
             tiles.clone());
         board.move_blank_tile(LEFT);
-        assert_eq!(board.tiles, vec![
+        assert_eq!(board.tiles, [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(BLANK_TILE), Tile::new(2)
@@ -861,8 +861,8 @@ mod tests {
     /// Test board move blank tile - DOWN
     #[test]
     fn test_board_move_blank_tile_down() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(BLANK_TILE), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(8), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(7)
@@ -873,7 +873,7 @@ mod tests {
             -1,
             tiles.clone());
         board.move_blank_tile(DOWN);
-        assert_eq!(board.tiles, vec![
+        assert_eq!(board.tiles, [
             Tile::new(3), Tile::new(4), Tile::new(6),
             Tile::new(BLANK_TILE), Tile::new(8), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(7)
@@ -883,8 +883,8 @@ mod tests {
     /// Test board move blank tile - RIGHT
     #[test]
     fn test_board_move_blank_tile_right() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(BLANK_TILE), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(8), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(7)
@@ -895,7 +895,7 @@ mod tests {
             -1,
             tiles.clone());
         board.move_blank_tile(RIGHT);
-        assert_eq!(board.tiles, vec![
+        assert_eq!(board.tiles, [
             Tile::new(4), Tile::new(BLANK_TILE), Tile::new(6),
             Tile::new(3), Tile::new(8), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(7)
@@ -905,8 +905,8 @@ mod tests {
     /// Test board get manhattan cost
     #[test]
     fn test_board_get_manhattan_cost() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -916,14 +916,14 @@ mod tests {
             Some(&solved_board),
             -1,
             tiles.clone());
-        assert_eq!(board._manhattan_cost(), 18);
+        assert_eq!(board._manhattan_cost(&solved_board), 18);
     }
 
     /// Test board shuffle
     #[test]
     fn test_board_shuffle() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -935,7 +935,7 @@ mod tests {
             tiles.clone());
         board.shuffle(1000);
         println!("{}", board.to_string());
-        assert_ne!(board.tiles, vec![
+        assert_ne!(board.tiles, [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -945,8 +945,8 @@ mod tests {
     /// Test board is solved
     #[test]
     fn test_board_is_solved() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -956,8 +956,8 @@ mod tests {
             Some(&solved_board),
             -1,
             tiles.clone());
-        assert!(!board.is_solved());
-        let tiles_2 = vec![
+        assert!(!board.is_solved(&solved_board));
+        let tiles_2 = [
             Tile::new(1), Tile::new(2), Tile::new(3),
             Tile::new(4), Tile::new(5), Tile::new(6),
             Tile::new(7), Tile::new(8), Tile::new(BLANK_TILE)
@@ -967,14 +967,14 @@ mod tests {
             Some(&solved_board),
             -1,
             tiles_2.clone());
-        assert!(board_2.is_solved());
+        assert!(board_2.is_solved(&solved_board));
     }
 
     /// Test board create tile row indices map
     #[test]
     fn test_create_tile_row_indices_map() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -1000,8 +1000,8 @@ mod tests {
     /// Test board create tile column indices map
     #[test]
     fn test_create_tile_column_indices_map() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -1027,8 +1027,8 @@ mod tests {
     /// Test board linear conflicts
     #[test]
     fn test_board_linear_conflicts() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(1), Tile::new(7), Tile::new(3),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -1038,14 +1038,14 @@ mod tests {
             Some(&solved_board),
             -1,
             tiles.clone());
-        assert_eq!(board._linear_conflicts(), 2);
+        assert_eq!(board.linear_conflicts(&solved_board), 2);
     }
 
     /// Test board get cost
     #[test]
     fn test_board_get_cost() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
@@ -1056,15 +1056,15 @@ mod tests {
             -1,
             tiles.clone());
         board.depth = 5;
-        assert_eq!(board.get_cost(), 23);
+        assert_eq!(board.get_cost(&solved_board), 23);
     }
 
     /// Test board priority queue
     /// - Ensure the priority queue acting as it should
     #[test]
     fn test_board_priority_queue() {
-        let solved_board = Board::new(3, None, -1, vec![]);
-        let tiles = vec![
+        let solved_board = Board::new(3, None, -1, None);
+        let tiles = [
             Tile::new(8), Tile::new(4), Tile::new(6),
             Tile::new(3), Tile::new(7), Tile::new(1),
             Tile::new(5), Tile::new(2), Tile::new(BLANK_TILE)
