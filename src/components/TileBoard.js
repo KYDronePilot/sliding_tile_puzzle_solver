@@ -4,6 +4,7 @@ import BoardNode from '../tile_solver/BoardNode';
 import Board, { OPPOSITE_DIRECTIONS } from '../tile_solver/Board';
 import AStarSolver from '../tile_solver/AStarSolver';
 import '../TileBoard.css'
+import {Tile as TileComponent} from './Tile';
 const wasmSolver = import("../../build/react_rust_wasm");
 
 
@@ -135,12 +136,7 @@ class TileBoard extends Component {
         return (
             <div>
                 <div className="tile-board">
-                    {this.state.board.tiles.map(tile => (
-                        <img
-                            src={`logo_files/row-${Math.floor((tile.symbol - 1) / this.state.n) + 1}-col-${(tile.symbol - 1) % this.state.n + 1}.jpg`}
-                            height={100} width={100} className="tile"
-                        />
-                    ))}
+                    {this.state.board.tiles.map(tile => (<TileComponent tile={tile} n={this.state.n}/>))}
                 </div>
                 <button onClick={this.shuffle.bind(this)}>Shuffle</button>
                 <button onClick={() => setTimeout(this.solve.bind(this), 1)}>Solve</button>

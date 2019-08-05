@@ -6,55 +6,10 @@
     <cargoProject FILE="$PROJECT_DIR$/newest_1/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="More work/optimizations done&#10; &#10; - Seems to be in a working state, although not much faster than JS&#10;   version now.">
-      <change beforePath="$PROJECT_DIR$/.idea/tile_puzzle_a_star.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tile_puzzle_a_star.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html.old" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-0-col--1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-1-col-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-1-col-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-1-col-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-1-col-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-2-col-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-2-col-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-2-col-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-2-col-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-3-col-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-3-col-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-3-col-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-3-col-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-4-col-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-4-col-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo_files/row-4-col-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TileBoard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TileBoard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver/AStarSolver.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver/AStarSolver.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver/Board.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver/Board.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver/BoardNode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver/BoardNode.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver/Tile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver/Tile.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver_rust/Cargo.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver_rust/Cargo.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver_rust/src/a_star_solver.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver_rust/src/board.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver_rust/src/main.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile_solver_rust/src/tile.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Tile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TileBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TileBoard.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,17 +21,26 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.45318726">
+    <splitter split-orientation="horizontal" split-proportion="0.48129675">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="373">
-                  <caret line="137" column="20" selection-start-line="137" selection-start-column="20" selection-end-line="142" selection-end-column="23" />
+                <state relative-caret-position="451">
+                  <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/Tile.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="369">
+                  <caret line="22" column="60" lean-forward="true" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
                 </state>
               </provider>
             </entry>
@@ -104,15 +68,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="63">
                   <caret line="3" selection-start-line="3" selection-end-line="3" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/Tile.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="273">
-                  <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
@@ -165,7 +120,7 @@
             <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="123">
-                  <caret line="137" column="20" selection-start-line="137" selection-start-column="20" selection-end-line="142" selection-end-column="23" />
+                  <caret line="138" column="20" selection-start-line="138" selection-start-column="20" selection-end-line="138" selection-end-column="20" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -247,7 +202,6 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.js" />
         <option value="$PROJECT_DIR$/src/tile_solver/Tile.test.js" />
         <option value="$PROJECT_DIR$/src/tile_solver/BoardNode.js" />
-        <option value="$PROJECT_DIR$/src/components/Tile.js" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.rs" />
         <option value="$PROJECT_DIR$/src/tile_solver/BoardNode.test.js" />
         <option value="$PROJECT_DIR$/src/tile_solver/AStarSolver.test.js" />
@@ -268,7 +222,6 @@
         <option value="$PROJECT_DIR$/src/tile_solver_rust_wasm/Cargo.toml" />
         <option value="$PROJECT_DIR$/src/tile_solver_rust_wasm/test-js/index.js" />
         <option value="$PROJECT_DIR$/src/tile_solver_rust_wasm/src/lib.rs" />
-        <option value="$PROJECT_DIR$/src/components/TileBoard.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/new_project/react-wasm-migration/package.json" />
         <option value="$PROJECT_DIR$/new_project/react-wasm-migration/src/components/TileBoard.js" />
@@ -287,6 +240,8 @@
         <option value="$PROJECT_DIR$/newest_1/package.json" />
         <option value="$PROJECT_DIR$/newest_1/Cargo.toml" />
         <option value="$PROJECT_DIR$/newest_1/src/components/Tile.js" />
+        <option value="$PROJECT_DIR$/src/components/TileBoard.js" />
+        <option value="$PROJECT_DIR$/src/components/Tile.js" />
       </list>
     </option>
   </component>
@@ -321,13 +276,13 @@
             <path>
               <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
               <item name="tile_puzzle_a_star" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
               <item name="tile_puzzle_a_star" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
+              <item name="logo_files" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -494,7 +449,7 @@
       <workItem from="1562462353778" duration="47775000" />
       <workItem from="1562899187975" duration="41130000" />
       <workItem from="1564708784205" duration="15082000" />
-      <workItem from="1564878985399" duration="24489000" />
+      <workItem from="1564878985399" duration="27050000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1555374310485</created>
@@ -601,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563154148144</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Made conversion to Web Assembly&#10;&#10; - Finished working on Rust implementation.&#10;   - Improved effectiveness of algorithm by making a second comparison&#10;     with the manhattan distance plus the number of linear conflicts if&#10;     the costs are the same (which happens a lot).&#10; - Made major changes to project structure to add support for Web&#10;   Assembly.&#10;   - Wasm is now fully functional.&#10;   - Project will now only use Rust code; need to setup an option for&#10;     using Rust or Javascript.">
+      <created>1564973658661</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1564973658661</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -637,13 +599,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232872000" />
+    <option name="totallyTimeSpent" value="235433000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="91" y="159" width="2399" height="1196" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14934239" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14934239" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -657,7 +619,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32935324" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30422795" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30422795" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32935324" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -685,7 +647,8 @@
     <MESSAGE value="Continued adding more methods to Board&#10;&#10; - Completed `shuffle` function (and test).&#10;   - Had to add new crate, `rand`&#10; - Altered `get_moves` function to be more explicit about lifetimes.&#10; - Added methods for `translate_index`, `move_blank_tile` (added&#10;   content), `_manhattan_cost`, `get_cost` (not complete), and&#10;   `is_solved`.&#10; - Added hash trait implementation to be based only on board tiles.&#10; - Added tests for new functions (except `get_cost`)." />
     <MESSAGE value="Nearly complete, committing for testing purposes" />
     <MESSAGE value="More work/optimizations done&#10; &#10; - Seems to be in a working state, although not much faster than JS&#10;   version now." />
-    <option name="LAST_COMMIT_MESSAGE" value="More work/optimizations done&#10; &#10; - Seems to be in a working state, although not much faster than JS&#10;   version now." />
+    <MESSAGE value="Made conversion to Web Assembly&#10;&#10; - Finished working on Rust implementation.&#10;   - Improved effectiveness of algorithm by making a second comparison&#10;     with the manhattan distance plus the number of linear conflicts if&#10;     the costs are the same (which happens a lot).&#10; - Made major changes to project structure to add support for Web&#10;   Assembly.&#10;   - Wasm is now fully functional.&#10;   - Project will now only use Rust code; need to setup an option for&#10;     using Rust or Javascript." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made conversion to Web Assembly&#10;&#10; - Finished working on Rust implementation.&#10;   - Improved effectiveness of algorithm by making a second comparison&#10;     with the manhattan distance plus the number of linear conflicts if&#10;     the costs are the same (which happens a lot).&#10; - Made major changes to project structure to add support for Web&#10;   Assembly.&#10;   - Wasm is now fully functional.&#10;   - Project will now only use Rust code; need to setup an option for&#10;     using Rust or Javascript." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1044,16 +1007,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="137" column="20" selection-start-line="137" selection-start-column="20" selection-end-line="142" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/bundle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -1068,10 +1021,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Tile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="14" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        <state relative-caret-position="369">
+          <caret line="22" column="60" lean-forward="true" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
         </state>
       </provider>
     </entry>
