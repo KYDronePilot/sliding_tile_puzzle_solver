@@ -50,6 +50,7 @@ export default class AStarSolver {
         let newLeaves = boardLeaf.getMoveLeaves();
         // Add these new leaves to leaves PQ
         for (let leaf of newLeaves) {
+            console.log(`New leaf with cost ${leaf.cost}:\n${leaf}`);
             this.boardLeaves.queue(leaf);
         }
     }
@@ -63,12 +64,13 @@ export default class AStarSolver {
         while (true) {
             // Get the next best solution path.
             let nextBestLeaf = this.boardLeaves.dequeue();
+            console.log(`Next best leaf with cost ${nextBestLeaf.cost}:\n${nextBestLeaf}`);
             // let nextBestLeaf = this.getNextBestLeaf();
-            // DEBUG
-            // console.log(nextBestLeaf.manhattanCost());
             // Return solved leaf if solved.
-            if (nextBestLeaf.isSolved())
+            if (nextBestLeaf.isSolved()) {
+                console.log(this.boardLeaves.length);
                 return nextBestLeaf;
+            }
             this.generateNextMoves(nextBestLeaf);
         }
     }

@@ -1,27 +1,35 @@
 {
-  "name": "tile_puzzle_a_star",
-  "version": "0.1.0",
-  "private": true,
+  "name": "newest_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-wasm": "cargo build --release --target wasm32-unknown-unknown",
+    "build-bindgen": "wasm-pack build --out-dir build --no-typescript",
+    "build": "npm run build-wasm && npm run build-bindgen && npx webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^3.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
+  },
   "dependencies": {
-    "hashset.js": "^1.1.0",
+    "@babel/runtime": "^7.5.5",
+    "express": "^4.17.1",
     "js-priority-queue": "^0.1.5",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "2.1.8"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "react-dom": "^16.8.6"
+  }
 }

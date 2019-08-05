@@ -1,11 +1,9 @@
+//use rand::seq::SliceRandom;
 use std::cmp::Ordering;
 use std::collections::{HashMap, HashSet};
 use std::hash::{Hash, Hasher};
 
-use rand::seq::SliceRandom;
-
-use super::tile::BLANK_TILE;
-use super::tile::Tile;
+use super::tile::*;
 
 /// Tile move directions
 const UP: char = 'U';
@@ -45,13 +43,13 @@ pub struct Board {
     n: i32,
     n2: i32,
     pub last_direction: char,
-//    solved_board: Option<&'a Board<'a>>,
     tiles: Box<[Tile]>,
     blank_index: i32,
     pub depth: i32,
-    //    pub parent_node: Option<&'a Board<'a>>,
     pub cost: i32,
     pub path: String,
+    pub manhattan_cost_cache: i32,
+    pub linear_conflicts_cache: i32,
 }
 
 impl Board {
@@ -64,7 +62,7 @@ impl Board {
     /// * `parent_node` - The parent board from which this board was derived
     /// * `tiles` - Board tiles
     pub fn new(n: i32, solved_board: Option<&Board>, depth: i32,
-                   mut tiles: Option<Box<[Tile]>>) -> Board {
+               mut tiles: Option<Box<[Tile]>>) -> Board {
         if tiles == None {
             tiles = Some(Tile::generate_tiles(n));
         }
@@ -72,12 +70,13 @@ impl Board {
             n,
             n2: n * n,
             last_direction: '\0',
-//            solved_board,
             tiles: tiles.unwrap(),
             blank_index: -1,
             depth,
             cost: -1,
             path: String::new(),
+            manhattan_cost_cache: -1,
+            linear_conflicts_cache: -1,
         };
         board.blank_index = board.get_blank_index();
         if solved_board != None {
@@ -116,25 +115,25 @@ impl Board {
 //        unsolved_board
 //    }
 
-    /// Reset previous boards that have been encountered
-    pub fn reset_previous_boards(previous_boards: &mut HashSet<Board>) {
-        previous_boards.clear();
-    }
+//    /// Reset previous boards that have been encountered
+//    pub fn reset_previous_boards(previous_boards: &mut HashSet<Board>) {
+//        previous_boards.clear();
+//    }
 
-    /// Find if board has already been encountered.
-    ///
-    /// # Returns
-    /// Whether this board has been seen before
-    pub fn previously_encountered(&self, previous_boards: &mut HashSet<Board>) -> bool {
-        previous_boards.contains(self)
-    }
-
-    /// Add board to previously encountered.
-    ///
-    /// TODO: Consider not doing this hear to prevent the copy from taking place (move directly in)
-    pub fn add_to_previously_encountered(&'static self, previous_boards: &'static mut HashSet<Board>) {
-        previous_boards.insert(self.clone());
-    }
+//    /// Find if board has already been encountered.
+//    ///
+//    /// # Returns
+//    /// Whether this board has been seen before
+//    pub fn previously_encountered(&self, previous_boards: &mut HashSet<Board>) -> bool {
+//        previous_boards.contains(self)
+//    }
+//
+//    /// Add board to previously encountered.
+//    ///
+//    /// Consider not doing this hear to prevent the copy from taking place (move directly in)
+//    pub fn add_to_previously_encountered(&'static self, previous_boards: &'static mut HashSet<Board>) {
+//        previous_boards.insert(self.clone());
+//    }
 
     /// Check if two tiles are in linear conflict.
     /// * Indices are 0-indexed and relative to the row/column they are in.
@@ -167,24 +166,24 @@ impl Board {
         board.tiles[(row * self.n + col) as usize]
     }
 
-    /// Shuffle the tiles using valid moves to ensure the puzzle is solvable.
-    ///
-    /// # Parameters
-    /// * `n` - Number of random moves to make
-    pub fn shuffle(&mut self, n: i32) {
-        for _i in 0..n {
-            // Update the blank index
-            self.blank_index = self.get_blank_index();
-            // Get all valid moves
-            let moves: Vec<char> = self.get_moves();
-            // Get a random move
-            let board_move = *moves.choose(&mut rand::thread_rng()).unwrap();
-            // Perform that move
-            self.move_blank_tile(board_move);
-        }
-        // Update the blank index
-        self.blank_index = self.get_blank_index();
-    }
+//    /// Shuffle the tiles using valid moves to ensure the puzzle is solvable.
+//    ///
+//    /// # Parameters
+//    /// * `n` - Number of random moves to make
+//    pub fn shuffle(&mut self, n: i32) {
+//        for _i in 0..n {
+//            // Update the blank index
+//            self.blank_index = self.get_blank_index();
+//            // Get all valid moves
+//            let moves: Vec<char> = self.get_moves();
+//            // Get a random move
+//            let board_move = *moves.choose(&mut rand::thread_rng()).unwrap();
+//            // Perform that move
+//            self.move_blank_tile(board_move);
+//        }
+//        // Update the blank index
+//        self.blank_index = self.get_blank_index();
+//    }
 
     /// Check if a move is valid.
     ///
@@ -266,7 +265,7 @@ impl Board {
     ///
     /// # Returns
     /// Manhattan cost of board
-    pub fn _manhattan_cost(&self, solved_board: &Board) -> i32 {
+    fn _manhattan_cost(&self, solved_board: &Board) -> i32 {
         let mut cost = 0;
         // Check each tile
         for i in 0..self.n2 {
@@ -290,27 +289,33 @@ impl Board {
         return cost;
     }
 
-    /// Cost/heuristic function for board.
+    /// Calculate cost/heuristic for board.
+    /// - Caches the manhattan cost and number of linear conflicts
+    ///
+    /// # Parameters
+    /// * `solved_board` - Solved board to calculate cost against
     ///
     /// # Returns
     /// Cost for board
-    pub fn get_cost(&self, solved_board: &Board) -> i32 {
-        self._manhattan_cost(solved_board) + self.depth + self.linear_conflicts(solved_board)
+    pub fn get_cost(&mut self, solved_board: &Board) -> i32 {
+        self.manhattan_cost_cache = self._manhattan_cost(solved_board);
+        self.linear_conflicts_cache = self.linear_conflicts(solved_board);
+        self.manhattan_cost_cache + self.depth + self.linear_conflicts_cache
     }
 
     /// Check if the board is solved.
     ///
     /// # Returns
     /// Whether the board is solved
-    pub fn is_solved(&self, solved_board: &Board) -> bool {
-        self._manhattan_cost(solved_board) == 0
+    pub fn is_solved(&self) -> bool {
+        self.manhattan_cost_cache == 0
     }
 
     /// Calculate the number of linear conflicts in the board.
     ///
     /// # Returns
     /// Linear conflicts in board
-    pub fn linear_conflicts(&self, solved_board: &Board) -> i32 {
+    fn linear_conflicts(&self, solved_board: &Board) -> i32 {
         // Create tile-index maps
         let solved_row_map = self._create_tile_row_indices_map(
             solved_board
@@ -364,7 +369,7 @@ impl Board {
     ///
     /// # Returns
     /// Conflicts in column
-    fn _find_row_conflicts(&self, row: i32, mut conflicting_tiles: &mut HashSet<Tile>,
+    fn _find_row_conflicts(&self, row: i32, conflicting_tiles: &mut HashSet<Tile>,
                            solved_row_map: &HashMap<Tile, i32>,
                            solved_col_map: &HashMap<Tile, i32>,
                            unsolved_row_map: &HashMap<Tile, i32>,
@@ -421,7 +426,7 @@ impl Board {
     ///
     /// # Returns
     /// Conflicts in column
-    fn _find_column_conflicts(&self, col: i32, mut conflicting_tiles: &mut HashSet<Tile>,
+    fn _find_column_conflicts(&self, col: i32, conflicting_tiles: &mut HashSet<Tile>,
                               solved_row_map: &HashMap<Tile, i32>,
                               solved_col_map: &HashMap<Tile, i32>,
                               unsolved_row_map: &HashMap<Tile, i32>,
@@ -561,12 +566,16 @@ impl ToString for Board {
 impl Ord for Board {
     fn cmp(&self, other: &Self) -> Ordering {
         other.cost.cmp(&self.cost)
+            .then_with(|| (other.manhattan_cost_cache + other.linear_conflicts_cache).cmp(
+                &(&self.manhattan_cost_cache + &self.linear_conflicts_cache)))
+//        self.partial_cmp(other).unwrap()
     }
 }
 
 impl PartialOrd for Board {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
+//        other.cost.partial_cmp(&self.cost)
     }
 }
 
@@ -956,7 +965,7 @@ mod tests {
             Some(&solved_board),
             -1,
             tiles.clone());
-        assert!(!board.is_solved(&solved_board));
+        assert!(!board.is_solved());
         let tiles_2 = [
             Tile::new(1), Tile::new(2), Tile::new(3),
             Tile::new(4), Tile::new(5), Tile::new(6),
@@ -967,7 +976,7 @@ mod tests {
             Some(&solved_board),
             -1,
             tiles_2.clone());
-        assert!(board_2.is_solved(&solved_board));
+        assert!(board_2.is_solved());
     }
 
     /// Test board create tile row indices map

@@ -165,6 +165,7 @@ export default class Board {
      * @param direction {string} - Direction to move to
      */
     translate(position, direction) {
+        console.log(TranslateIndex);
         return TranslateIndex[direction](position, this.n);
     }
 

@@ -4,12 +4,13 @@ import BoardNode from '../tile_solver/BoardNode';
 import Board, { OPPOSITE_DIRECTIONS } from '../tile_solver/Board';
 import AStarSolver from '../tile_solver/AStarSolver';
 import '../TileBoard.css'
+const wasmSolver = import("../../build/react_rust_wasm");
 
 
 // Board size
 let BOARD_N = 4;
 // Initial number of times to shuffle
-let INITIAL_SHUFFLE_N = 10000;
+let INITIAL_SHUFFLE_N = 50;
 // Number of times to shuffle with each button click
 let SHUFFLE_N = 10;
 // Visual move timeout (ms)
@@ -61,18 +62,39 @@ class TileBoard extends Component {
      * @return {null}
      */
     async solve() {
-        // Solve board object
-        let unsolvedBoard = this.state.board.copy();
-        let solver = new AStarSolver(unsolvedBoard);
-        let solvedLeaf = solver.solve();
-        // Get solution moves
-        let solutionMoves = AStarSolver.getSolutionMoves(solvedLeaf);
-        // Solve visual board
-        this.solveVisualBoard(unsolvedBoard, solutionMoves)
-            .then(() => {
-                this.setState({board: BoardNode.createGameBoard(BOARD_N, 0)});
-                BoardNode.resetPreviousBoards();
+        wasmSolver.then(solver => {
+            let unsolvedBoard = this.state.board.copy();
+            let tilesCSV = "4," + unsolvedBoard.tiles.map(tile => tile.symbol).join(",");
+            let solution = solver.solve_board(tilesCSV);
+            const solutionConstMoves = solution.split("").map(moveChar => {
+                if (moveChar === "U")
+                    return "up";
+                if (moveChar === "D")
+                    return "down";
+                if (moveChar === "L")
+                    return "left";
+                return "right";
             });
+            // Solve visual board
+            this.solveVisualBoard(unsolvedBoard, solutionConstMoves)
+                .then(() => {
+                    this.setState({board: BoardNode.createGameBoard(BOARD_N, 0)});
+                    BoardNode.resetPreviousBoards();
+                });
+            // alert(solution);
+        })
+        // // Solve board object
+        // let unsolvedBoard = this.state.board.copy();
+        // let solver = new AStarSolver(unsolvedBoard);
+        // let solvedLeaf = solver.solve();
+        // // Get solution moves
+        // let solutionMoves = AStarSolver.getSolutionMoves(solvedLeaf);
+        // Solve visual board
+        // this.solveVisualBoard(unsolvedBoard, solutionMoves)
+        //     .then(() => {
+        //         this.setState({board: BoardNode.createGameBoard(BOARD_N, 0)});
+        //         BoardNode.resetPreviousBoards();
+        //     });
     }
 
     /**

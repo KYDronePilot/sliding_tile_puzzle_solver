@@ -9,43 +9,51 @@ pub struct Tile {
 }
 
 impl Tile {
-    //! Construct a new tile.
-    //! * `symbol` - Symbol to represent tile
+    /// Construct a new tile.
+    ///
+    /// # Parameters
+    /// * `symbol` - Symbol to represent tile
     pub fn new(symbol: i32) -> Tile {
         Tile { symbol }
     }
 
     /// Check if tile is blank.
-    /// Returns: Whether or not the tile is blank
+    ///
+    /// # Returns
+    /// Whether or not the tile is blank
     pub fn is_blank(&self) -> bool {
         self.symbol == BLANK_TILE
     }
 
     /// Generate tiles for a solved game board.
+    ///
+    /// # Parameters
     /// * `n` - Number of tiles to generate
-    /// Returns: Generated tiles
+    ///
+    /// # Returns
+    /// Generated tiles
     pub fn generate_tiles(n: i32) -> Box<[Tile]> {
-//        let mut tiles: Vec<Tile> = Vec::new();
         let mut tiles: Vec<Tile> = Vec::with_capacity(n as usize);
-//        let mut tiles: [Tile; n] = [];
         // Generate the first n - 1 tiles
         for i in 1..(n * n) {
             tiles.push(Tile::new(i));
         }
         // Add on the blank tile
         tiles.push(Tile::new(BLANK_TILE));
-        return tiles.into_boxed_slice();
+        tiles.into_boxed_slice()
     }
 }
 
 impl ToString for Tile {
     /// Format the tile symbol.
-    /// Returns: The formatted tile symbol
+    ///
+    /// # Returns
+    /// The formatted tile symbol
     fn to_string(&self) -> String {
         if self.is_blank() {
             return "      ".to_string();
         }
-        return format!("Tile {}", self.symbol);
+        format!("Tile {}", self.symbol)
     }
 }
 
