@@ -8,8 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Tile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TileBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TileBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,8 +30,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="451">
-                  <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
+                <state relative-caret-position="367">
+                  <caret line="139" column="56" lean-forward="true" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -39,8 +42,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/Tile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="369">
-                  <caret line="22" column="60" lean-forward="true" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+                <state relative-caret-position="315">
+                  <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -57,8 +63,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/package.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="98">
-                  <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+                <state relative-caret-position="189">
+                  <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
                 </state>
               </provider>
             </entry>
@@ -84,7 +90,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tile_solver/AStarSolver.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="274">
+                <state relative-caret-position="588">
                   <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
                 </state>
               </provider>
@@ -93,21 +99,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/board.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="410">
-                  <caret line="28" selection-start-line="28" selection-end-line="28" />
-                  <folding>
-                    <element signature="e#10100#10101#0" expanded="true" />
-                    <element signature="e#10145#10146#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/webpack.config.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="84">
-                  <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+                <state relative-caret-position="116">
+                  <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -119,8 +112,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="123">
-                  <caret line="138" column="20" selection-start-line="138" selection-start-column="20" selection-end-line="138" selection-end-column="20" />
+                <state relative-caret-position="144">
+                  <caret line="151" column="25" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -191,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Tile.js" />
         <option value="$PROJECT_DIR$/src/components/TileComponent.js" />
         <option value="$PROJECT_DIR$/src/lib/hashset.js" />
         <option value="$PROJECT_DIR$/build/index.html" />
@@ -241,6 +233,7 @@
         <option value="$PROJECT_DIR$/newest_1/Cargo.toml" />
         <option value="$PROJECT_DIR$/newest_1/src/components/Tile.js" />
         <option value="$PROJECT_DIR$/src/components/TileBoard.js" />
+        <option value="$PROJECT_DIR$/webpack.config.js" />
         <option value="$PROJECT_DIR$/src/components/Tile.js" />
       </list>
     </option>
@@ -255,8 +248,8 @@
     <option name="directoryName" value="uQuQZRis" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="91" />
-    <option name="y" value="159" />
+    <option name="x" value="97" />
+    <option name="y" value="88" />
     <option name="width" value="2399" />
     <option name="height" value="1196" />
   </component>
@@ -277,12 +270,6 @@
               <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
               <item name="tile_puzzle_a_star" type="462c0819:PsiDirectoryNode" />
               <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tile_puzzle_a_star" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-              <item name="logo_files" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -398,7 +385,7 @@
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="start" />
+        <script value="build" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -449,7 +436,8 @@
       <workItem from="1562462353778" duration="47775000" />
       <workItem from="1562899187975" duration="41130000" />
       <workItem from="1564708784205" duration="15082000" />
-      <workItem from="1564878985399" duration="27050000" />
+      <workItem from="1564878985399" duration="27337000" />
+      <workItem from="1565053443008" duration="6075000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1555374310485</created>
@@ -563,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564973658661</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Started moving tile rendering to another component&#10;&#10; - Started by creating a new component, but should probably just add to&#10;   the tile class that already exists.">
+      <created>1564976018377</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1564976018377</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -599,19 +594,18 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235433000" />
+    <option name="totallyTimeSpent" value="241795000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="91" y="159" width="2399" height="1196" extended-state="0" />
-    <editor active="true" />
+    <frame x="97" y="88" width="2399" height="1196" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14934239" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15061519" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.45128676" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.34099266" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.546875" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3044776" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -619,7 +613,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32935324" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30422795" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2591912" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32935324" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -648,7 +642,8 @@
     <MESSAGE value="Nearly complete, committing for testing purposes" />
     <MESSAGE value="More work/optimizations done&#10; &#10; - Seems to be in a working state, although not much faster than JS&#10;   version now." />
     <MESSAGE value="Made conversion to Web Assembly&#10;&#10; - Finished working on Rust implementation.&#10;   - Improved effectiveness of algorithm by making a second comparison&#10;     with the manhattan distance plus the number of linear conflicts if&#10;     the costs are the same (which happens a lot).&#10; - Made major changes to project structure to add support for Web&#10;   Assembly.&#10;   - Wasm is now fully functional.&#10;   - Project will now only use Rust code; need to setup an option for&#10;     using Rust or Javascript." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made conversion to Web Assembly&#10;&#10; - Finished working on Rust implementation.&#10;   - Improved effectiveness of algorithm by making a second comparison&#10;     with the manhattan distance plus the number of linear conflicts if&#10;     the costs are the same (which happens a lot).&#10; - Made major changes to project structure to add support for Web&#10;   Assembly.&#10;   - Wasm is now fully functional.&#10;   - Project will now only use Rust code; need to setup an option for&#10;     using Rust or Javascript." />
+    <MESSAGE value="Started moving tile rendering to another component&#10;&#10; - Started by creating a new component, but should probably just add to&#10;   the tile class that already exists." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started moving tile rendering to another component&#10;&#10; - Started by creating a new component, but should probably just add to&#10;   the tile class that already exists." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -673,87 +668,16 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/App.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/TileBoard.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/components/Tile.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/components/TileBoard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="62" column="7" selection-start-line="62" selection-start-column="7" selection-end-line="62" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/config-overrides.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/even_newer_project/.github/FUNDING.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/even_newer_project/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/even_newer_project/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="20" lean-forward="true" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/node_modules/react-app-rewired/config-overrides.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/App.js" />
+    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/TileBoard.css" />
+    <entry file="file://$PROJECT_DIR$/src/webpack.config.js" />
+    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/components/Tile.js" />
+    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/components/TileBoard.js" />
+    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/config-overrides.js" />
+    <entry file="file://$PROJECT_DIR$/even_newer_project/.github/FUNDING.yml" />
+    <entry file="file://$PROJECT_DIR$/even_newer_project/.travis.yml" />
+    <entry file="file://$PROJECT_DIR$/even_newer_project/src/index.js" />
+    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/node_modules/react-app-rewired/config-overrides.js" />
     <entry file="file://$PROJECT_DIR$/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -761,64 +685,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newest_1/src_old/lib.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust_wasm/test-js/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/even_newer_project/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/tile_solver_rust_wasm/pkg/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/newest_1/src_old/lib.rs" />
+    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust_wasm/test-js/webpack.config.js" />
+    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/package.json" />
+    <entry file="file://$PROJECT_DIR$/even_newer_project/src/App.js" />
+    <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/tile_solver_rust_wasm/pkg/package.json" />
     <entry file="file://$PROJECT_DIR$/src/tile_solver/Tile.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/newest_1/src_old/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="45" />
-          <folding>
-            <element signature="e#25#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile_solver/BoardNode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/newest_1/src_old/index.js" />
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -826,13 +704,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -843,55 +714,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newest_1/build/react_rust_wasm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/src/tile.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="38" column="1" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust_wasm/Cargo.toml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile_solver/Board.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile_solver/Board.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/newest_1/build/react_rust_wasm.js" />
+    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/src/tile.rs" />
+    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust_wasm/Cargo.toml" />
+    <entry file="file://$PROJECT_DIR$/public/index.html" />
     <entry file="file://$USER_HOME$/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/mem/mod.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -903,13 +729,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newest_1/src/a_star_solver.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/newest_1/src/a_star_solver.rs" />
     <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/tile.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -917,49 +737,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/src/board.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="412" column="13" selection-start-line="412" selection-start-column="13" selection-end-line="412" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/src/board.rs" />
     <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/lib.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile_solver/AStarSolver.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/board.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#10100#10101#0" expanded="true" />
-            <element signature="e#10145#10146#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cargo.toml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -1021,10 +803,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cargo.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/Board.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/AStarSolver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/test_image_resized.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="2" lean-forward="true" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/board.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/test_image_resized_2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
+        <state relative-caret-position="367">
+          <caret line="139" column="56" lean-forward="true" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -1033,8 +870,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Tile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="22" column="60" lean-forward="true" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+        <state relative-caret-position="315">
+          <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

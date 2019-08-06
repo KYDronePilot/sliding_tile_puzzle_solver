@@ -21,12 +21,14 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^3.1.0",
+    "file-loader": "^4.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
+    "cropperjs": "^1.5.5",
     "express": "^4.17.1",
     "js-priority-queue": "^0.1.5",
     "react": "^16.8.6",

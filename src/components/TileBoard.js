@@ -11,7 +11,7 @@ const wasmSolver = import("../../build/react_rust_wasm");
 // Board size
 let BOARD_N = 4;
 // Initial number of times to shuffle
-let INITIAL_SHUFFLE_N = 50;
+let INITIAL_SHUFFLE_N = 0;
 // Number of times to shuffle with each button click
 let SHUFFLE_N = 10;
 // Visual move timeout (ms)
@@ -135,8 +135,12 @@ class TileBoard extends Component {
     render() {
         return (
             <div>
-                <div className="tile-board">
-                    {this.state.board.tiles.map(tile => (<TileComponent tile={tile} n={this.state.n}/>))}
+                <div
+                    style={{
+                        width: '400px', height: '400px',
+                        display: 'block'
+                    }}>
+                    {this.state.board.tiles.slice(0, -1).map(tile => (<TileComponent tile={tile} n={this.state.n}/>))}
                 </div>
                 <button onClick={this.shuffle.bind(this)}>Shuffle</button>
                 <button onClick={() => setTimeout(this.solve.bind(this), 1)}>Solve</button>

@@ -1,4 +1,8 @@
 import React, {Component} from 'react';
+import image from '../../dist/test_image_resized_2.jpg';
+
+// Dimensions of individual tiles
+const tileDimensions = '100px';
 
 /**
  * Represents a physical tile on the game board.
@@ -6,25 +10,38 @@ import React, {Component} from 'react';
  */
 class Tile extends Component {
     /**
-     * Get the filename of the image to display.
-     * @return {string} Filename of image to display
+     * Get the row of the tile.
+     * @return {number} Row of tile
      */
-    getFileName() {
-        let row = Math.floor((this.props.tile.symbol - 1) / this.props.n) + 1;
-        let col = (this.props.tile.symbol - 1) % this.props.n + 1;
-        console.log(`row-${row}-col-${col}.jpg`);
-        return `row-${row}-col-${col}.jpg`;
+    row() {
+        return Math.floor((this.props.tile.symbol - 1) / this.props.n) + 1;
+    }
+
+    /**
+     * Get the column of the tile.
+     * @return {number} Column of the tile
+     */
+    col() {
+        return (this.props.tile.symbol - 1) % this.props.n + 1;
+    }
+
+    /**
+     * Get the position of the background for this tile.
+     * @return {string} The "X Y" background position info
+     */
+    backgroundPosition() {
+        return `${(this.col() - 1) * -100}px ${(this.row() - 1) * -100}px`;
     }
 
     render() {
         return (
-            <div>
-                <img
-                    src={`logo_files/${this.getFileName()}`}
-                    alt={`Tile puzzle tile`}
-                    height={100} width={100}
-                    className="tile"
-                />
+            <div
+                style={{
+                    height: tileDimensions, width: tileDimensions,
+                    background: `url(${image})`,
+                    'background-position': this.backgroundPosition(),
+                    display: 'block', float: 'left'
+                }}>
             </div>
         );
     }
