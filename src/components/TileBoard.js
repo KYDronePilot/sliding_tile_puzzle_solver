@@ -11,7 +11,7 @@ const wasmSolver = import("../../build/react_rust_wasm");
 // Board size
 let BOARD_N = 4;
 // Initial number of times to shuffle
-let INITIAL_SHUFFLE_N = 0;
+let INITIAL_SHUFFLE_N = 10;
 // Number of times to shuffle with each button click
 let SHUFFLE_N = 10;
 // Visual move timeout (ms)
@@ -37,11 +37,11 @@ class TileBoard extends Component {
     async shuffle() {
         await this.setState(state => {
            state.board.shuffle(SHUFFLE_N);
-           console.log(state.board.toString());
+           // console.log(state.board.toString());
            // console.log(board.tiles.map(item => item.symbol));
            return {board: state.board};
         });
-        console.log(this.state.board.toString());
+        // console.log(this.state.board.toString());
     }
 
     /**
@@ -52,7 +52,7 @@ class TileBoard extends Component {
      */
     async solveVisualBoard(board, moves) {
         for (let move of moves) {
-            this.slideTile(board.blankIndex, move, board);
+            this.slideTile(move, board);
             // Pause before next move
             await sleep(MOVE_TIMEOUT);
         }
@@ -100,13 +100,12 @@ class TileBoard extends Component {
 
     /**
      * Slide tile on the visual board.
-     * @param blankTileI {number} - Index of blank tile
-     * @param blankTileMoveDirection {string} - Move direction of blank tile
+     * @param moveDirection {string} - Move direction of blank tile
      * @param board {BoardNode} - Board to make move on
      */
-    slideTile(blankTileI, blankTileMoveDirection, board) {
+    slideTile(blankTileMoveDirection, board) {
         // Get index of tile to move
-        let tileI = board.translate(blankTileI, blankTileMoveDirection);
+        let tileI = board.translate(board.blankIndex, blankTileMoveDirection);
         // Get actual move direction of tile
         let moveDirection = OPPOSITE_DIRECTIONS[blankTileMoveDirection];
         // Get DOM of object to move
@@ -114,33 +113,32 @@ class TileBoard extends Component {
         // Start move animation.
         domTile.classList.add(`move-${moveDirection}`);
         setTimeout(() => {
+            // Swap tile positions
+            [board.tiles[board.blankIndex], board.tiles[tileI]] = [board.tiles[tileI], board.tiles[board.blankIndex]];
+            // Update blank tile index
+            board.blankIndex = tileI;
             // Remove move animation
             domTile.classList.remove(`move-${moveDirection}`);
-            // Swap tile positions
-            [board.tiles[blankTileI], board.tiles[tileI]] = [board.tiles[tileI], board.tiles[blankTileI]];
-            // Update blank tile index
-            board.blankIndex = board.getBlankIndex();
             // Update state.
             this.setState({board: board});
-
         }, 300);
     }
 
-    componentDidMount() {
-        setInterval(() => {
-            console.log(this.state.board.toString());
-        }, 2000);
-    }
+    // componentDidMount() {
+    //     setInterval(() => {
+    //         console.log(this.state.board.toString());
+    //     }, 2000);
+    // }
 
     render() {
         return (
             <div>
                 <div
                     style={{
-                        width: '400px', height: '400px',
-                        display: 'block'
+                        width: '408px', height: '408px',
+                        display: 'block', marginLeft: 'auto', marginRight: 'auto'
                     }}>
-                    {this.state.board.tiles.slice(0, -1).map(tile => (<TileComponent tile={tile} n={this.state.n}/>))}
+                    {this.state.board.tiles.map(tile => (<TileComponent tile={tile} n={this.state.n}/>))}
                 </div>
                 <button onClick={this.shuffle.bind(this)}>Shuffle</button>
                 <button onClick={() => setTimeout(this.solve.bind(this), 1)}>Solve</button>

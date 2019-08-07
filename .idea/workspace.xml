@@ -6,13 +6,12 @@
     <cargoProject FILE="$PROJECT_DIR$/newest_1/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="">
+    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="Got sliding tile animation working&#10;&#10; - Got sliding tile animation working with new tile background image&#10;   property changes made yesterday.&#10;   - Tried to implement a component-based animation system, but could&#10;     not get it to work (callback issues).">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TileBoard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/TileBoard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Tile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TileBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TileBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,14 +23,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.48129675">
+    <splitter split-orientation="horizontal" split-proportion="0.44877344">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="367">
-                  <caret line="139" column="56" lean-forward="true" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
+                <state relative-caret-position="60">
+                  <caret line="133" column="37" lean-forward="true" selection-start-line="133" selection-start-column="37" selection-end-line="133" selection-end-column="37" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -39,14 +38,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/components/Tile.js">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/TileBoard.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="423">
+                  <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -99,8 +95,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/board.rs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="116">
-                  <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+                <state relative-caret-position="294">
+                  <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -110,10 +106,31 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/components/Tile.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-566">
+                  <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/tile_solver/Tile.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-372">
+                  <caret line="16" selection-start-line="16" selection-end-line="16" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="151" column="25" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
+                <state relative-caret-position="659">
+                  <caret line="164" column="25" selection-start-line="164" selection-start-column="25" selection-end-line="164" selection-end-column="25" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -136,12 +153,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>^ *//.*?$</find>
-      <find>sleep</find>
-      <find>null</find>
-      <find>trans</find>
-      <find>move</find>
-      <find>conflict</find>
       <find>eq</find>
       <find>get_blank</find>
       <find>translate</find>
@@ -166,6 +177,12 @@
       <find>previously_encountered</find>
       <find>shuffle</find>
       <find>manhatt</find>
+      <find>background-positi</find>
+      <find>tile.slideTile</find>
+      <find>tile.functions.slideTile</find>
+      <find>this.setState</find>
+      <find>sleep</find>
+      <find>blankTileI</find>
     </findStrings>
     <replaceStrings>
       <replace>let solved_board = Board::new(3, None, -1, vec![]);</replace>
@@ -187,7 +204,6 @@
         <option value="$PROJECT_DIR$/src/components/TileComponent.js" />
         <option value="$PROJECT_DIR$/src/lib/hashset.js" />
         <option value="$PROJECT_DIR$/build/index.html" />
-        <option value="$PROJECT_DIR$/src/TileBoard.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/smashing_implementation/index.html" />
@@ -232,8 +248,9 @@
         <option value="$PROJECT_DIR$/newest_1/package.json" />
         <option value="$PROJECT_DIR$/newest_1/Cargo.toml" />
         <option value="$PROJECT_DIR$/newest_1/src/components/Tile.js" />
-        <option value="$PROJECT_DIR$/src/components/TileBoard.js" />
         <option value="$PROJECT_DIR$/webpack.config.js" />
+        <option value="$PROJECT_DIR$/src/TileBoard.css" />
+        <option value="$PROJECT_DIR$/src/components/TileBoard.js" />
         <option value="$PROJECT_DIR$/src/components/Tile.js" />
       </list>
     </option>
@@ -270,6 +287,17 @@
               <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
               <item name="tile_puzzle_a_star" type="462c0819:PsiDirectoryNode" />
               <item name="dist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tile_puzzle_a_star" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tile_puzzle_a_star" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tile_solver" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -437,7 +465,8 @@
       <workItem from="1562899187975" duration="41130000" />
       <workItem from="1564708784205" duration="15082000" />
       <workItem from="1564878985399" duration="27337000" />
-      <workItem from="1565053443008" duration="6075000" />
+      <workItem from="1565053443008" duration="6364000" />
+      <workItem from="1565133980066" duration="9668000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1555374310485</created>
@@ -558,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564976018377</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Figured out way to display tiles in single image file format&#10;&#10; - Found a way to use CSS background properties and a single image to&#10;   represent the board tiles.&#10;   - More work needs to be done to get the visualization working again.">
+      <created>1565060815106</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1565060815106</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -594,18 +630,19 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="241795000" />
+    <option name="totallyTimeSpent" value="251752000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="97" y="88" width="2399" height="1196" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15061519" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11794654" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.45128676" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.546875" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3216912" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3044776" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -643,7 +680,8 @@
     <MESSAGE value="More work/optimizations done&#10; &#10; - Seems to be in a working state, although not much faster than JS&#10;   version now." />
     <MESSAGE value="Made conversion to Web Assembly&#10;&#10; - Finished working on Rust implementation.&#10;   - Improved effectiveness of algorithm by making a second comparison&#10;     with the manhattan distance plus the number of linear conflicts if&#10;     the costs are the same (which happens a lot).&#10; - Made major changes to project structure to add support for Web&#10;   Assembly.&#10;   - Wasm is now fully functional.&#10;   - Project will now only use Rust code; need to setup an option for&#10;     using Rust or Javascript." />
     <MESSAGE value="Started moving tile rendering to another component&#10;&#10; - Started by creating a new component, but should probably just add to&#10;   the tile class that already exists." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started moving tile rendering to another component&#10;&#10; - Started by creating a new component, but should probably just add to&#10;   the tile class that already exists." />
+    <MESSAGE value="Figured out way to display tiles in single image file format&#10;&#10; - Found a way to use CSS background properties and a single image to&#10;   represent the board tiles.&#10;   - More work needs to be done to get the visualization working again." />
+    <option name="LAST_COMMIT_MESSAGE" value="Figured out way to display tiles in single image file format&#10;&#10; - Found a way to use CSS background properties and a single image to&#10;   represent the board tiles.&#10;   - More work needs to be done to get the visualization working again." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -690,9 +728,6 @@
     <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/package.json" />
     <entry file="file://$PROJECT_DIR$/even_newer_project/src/App.js" />
     <entry file="file://$PROJECT_DIR$/new_project/react-wasm-migration/src/tile_solver_rust_wasm/pkg/package.json" />
-    <entry file="file://$PROJECT_DIR$/src/tile_solver/Tile.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/serviceWorker.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -803,10 +838,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dist/test_image_resized.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="2" lean-forward="true" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/test_image_resized_2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -831,37 +886,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/test_image_resized.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="2" lean-forward="true" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/board.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <state relative-caret-position="294">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/test_image_resized_2.jpg">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/Tile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-372">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TileBoard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="139" column="56" lean-forward="true" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
+        <state relative-caret-position="659">
+          <caret line="164" column="25" selection-start-line="164" selection-start-column="25" selection-end-line="164" selection-end-column="25" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -870,8 +919,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Tile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        <state relative-caret-position="-566">
+          <caret line="19" column="27" lean-forward="true" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

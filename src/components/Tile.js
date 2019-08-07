@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {Tile as TileObject} from '../components/Tile';
 import image from '../../dist/test_image_resized_2.jpg';
 
 // Dimensions of individual tiles
@@ -9,6 +11,15 @@ const tileDimensions = '100px';
  * @author Michael Galliers
  */
 class Tile extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    static propTypes = {
+        tile: PropTypes.instanceOf(TileObject),
+        n: PropTypes.number
+    };
+
     /**
      * Get the row of the tile.
      * @return {number} Row of tile
@@ -33,14 +44,26 @@ class Tile extends Component {
         return `${(this.col() - 1) * -100}px ${(this.row() - 1) * -100}px`;
     }
 
+    /**
+     * Get the background for the tile.
+     * @return {string} Value of the CSS background property.
+     */
+    background() {
+        if (this.props.tile.isBlank())
+            return 'white';
+        return `url(${image})`;
+    }
+
     render() {
         return (
             <div
+                className={'tile'}
                 style={{
                     height: tileDimensions, width: tileDimensions,
-                    background: `url(${image})`,
-                    'background-position': this.backgroundPosition(),
-                    display: 'block', float: 'left'
+                    background: this.background(),
+                    backgroundPosition: this.backgroundPosition(),
+                    display: 'block', float: 'left',
+                    border: '1px solid white'
                 }}>
             </div>
         );

@@ -5,15 +5,7 @@
     border: 2px solid black;
 }
 
-.tile {
-    text-align: center;
-    height: 100px;
-    width: 100px;
-    float: left;
-    background: #fafafa;
-    font-size: 20pt;
-    line-height: 100px;
-}
+.tile {}
 
 .tile:hover:not(:empty) {
     cursor: pointer;
@@ -32,7 +24,7 @@
 .move-down,
 .move-left,
 .move-right {
-    background: #fdd !important;
+    /*background: #fdd !important;*/
     -webkit-transition: -webkit-transform 0.3s, background 0.3s;
     transition: transform 0.3s, background 0.3s;
 }
