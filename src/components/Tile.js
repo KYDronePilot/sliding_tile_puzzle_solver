@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Tile as TileObject} from '../components/Tile';
+import {Tile as TileObject} from '../tile_solver/Tile';
+import {TileBoard} from './TileBoard';
 import image from '../../dist/test_image_resized_2.jpg';
 
 // Dimensions of individual tiles
@@ -13,10 +14,12 @@ const tileDimensions = '100px';
 class Tile extends Component {
     constructor(props) {
         super(props);
+        this.state = {moveClass: ''}
     }
 
     static propTypes = {
         tile: PropTypes.instanceOf(TileObject),
+        board: PropTypes.instanceOf(TileBoard),
         n: PropTypes.number
     };
 
@@ -54,10 +57,43 @@ class Tile extends Component {
         return `url(${image})`;
     }
 
+    /**
+     * Slide the tile on the visual board.
+     * @param moveDirection {string} - Direction to move the tile
+     * @param callback {function} - Callback after tile finishes moving
+     */
+    slideTile(moveDirection, callback) {
+        this.setState({moveClass: `move-${moveDirection}`}, () => {
+            setTimeout(() => {
+                this.setState({moveClass: ''}, callback);
+            }, 300)
+        })
+    }
+
+    /**
+     * Move tile if moving is valid.
+     */
+    handleClick() {
+        // Exit if cannot move
+        if (!this.props.board.canTileMove(this.props.tile))
+            return;
+        // Get move direction
+        const moveDirection = this.props.board.getTileMoveDirection(this.props.tile);
+        // Slide the tile
+        this.slideTile(moveDirection, () => {
+            this.props.board.swapTiles(
+                this.props.board.state.board.tiles.indexOf(this.props.tile),
+                this.props.board.state.board.blankIndex
+            );
+        })
+    }
+
     render() {
         return (
             <div
-                className={'tile'}
+                className={`tile ${this.state.moveClass}`}
+                id={`tile-${this.props.tile.symbol}`}
+                onClick={this.handleClick.bind(this)}
                 style={{
                     height: tileDimensions, width: tileDimensions,
                     background: this.background(),

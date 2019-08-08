@@ -6,7 +6,7 @@ export const BLANK_TILE = -1;
 /**
  * Simple representation of a tile in the board.
  */
-export default class Tile {
+export class Tile {
     /**
      * Construct a simple tile.
      * @param symbol {number} - Symbol to represent the tile

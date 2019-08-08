@@ -52,3 +52,22 @@
     -webkit-transform: translateX(100px);
     transform: translateX(100px);
 }
+
+.success {
+    background-color: #39a842;
+    color: white;
+}
+
+.primary {
+    background-color: #3177ff;
+    color: white;
+}
+
+button {
+    padding: 6px 12px;
+    margin: 3px 8px;
+    font-size: 15pt;
+    border-radius: 5pt;
+    cursor: pointer;
+    outline: none;
+}
