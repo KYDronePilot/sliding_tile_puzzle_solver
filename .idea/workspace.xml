@@ -6,11 +6,9 @@
     <cargoProject FILE="$PROJECT_DIR$/newest_1/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="">
+    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="More cleanup of old packages and components">
       <change beforePath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/AlgorithmSelection.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" column="57" lean-forward="true" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+            <state relative-caret-position="441">
+              <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -53,7 +51,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
@@ -107,8 +105,8 @@
       <find>checked</find>
       <find>console.log</find>
       <find>handleShuffleCountChange</find>
-      <find>mdbreact</find>
       <find>shuffleCount</find>
+      <find>mdbreact</find>
     </findStrings>
     <replaceStrings>
       <replace>let solved_board = Board::new(3, None, -1, vec![]);</replace>
@@ -179,9 +177,9 @@
         <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/Hr.js" />
         <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/index.html" />
         <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/package.json" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js" />
         <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/AlgorithmSelection.js" />
         <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.js" />
+        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js" />
       </list>
     </option>
   </component>
@@ -212,6 +210,16 @@
             <path>
               <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
               <item name="a-star-tile-puzzle-solver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
+              <item name="a-star-tile-puzzle-solver" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
+              <item name="a-star-tile-puzzle-solver" type="462c0819:PsiDirectoryNode" />
+              <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
@@ -394,7 +402,7 @@
       <workItem from="1565053443008" duration="6364000" />
       <workItem from="1565133980066" duration="9771000" />
       <workItem from="1565222649678" duration="9365000" />
-      <workItem from="1565300621857" duration="32515000" />
+      <workItem from="1565300621857" duration="32972000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1555374310485</created>
@@ -557,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565468420135</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="More cleanup of old packages and components">
+      <created>1565469252720</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1565469252720</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -593,13 +608,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="293735000" />
+    <option name="totallyTimeSpent" value="294192000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="91" y="86" width="2399" height="1196" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15400933" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15400933" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -613,7 +627,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3290441" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.34742647" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.34742647" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32935324" />
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.32996324" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -663,7 +677,8 @@
     <MESSAGE value="Finished cleaning up the UI&#10;&#10; - Added some components to help make the UI look better." />
     <MESSAGE value="Added dist files" />
     <MESSAGE value="Pruned packages no longer required" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pruned packages no longer required" />
+    <MESSAGE value="More cleanup of old packages and components" />
+    <option name="LAST_COMMIT_MESSAGE" value="More cleanup of old packages and components" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1028,22 +1043,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="57" lean-forward="true" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

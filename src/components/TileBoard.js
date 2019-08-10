@@ -11,7 +11,7 @@ import Hr from './Hr';
 import TextBasedInput from './TextBasedInput';
 import Dropdown from './dropdown';
 
-const wasmSolver = import('../../build/react_rust_wasm');
+const wasmSolver = import('../../build/a_star_tile_puzzle_solver');
 
 const RUST_ALGORITHM = 'rust-algorithm';
 const JS_ALGORITHM = 'js-algorithm';
