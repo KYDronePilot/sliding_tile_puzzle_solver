@@ -16,7 +16,7 @@ beforeEach(() => {
 });
 
 test("Board constructor", () => {
-    expect(board.n).toBe(3);
+    expect(board.boardSize).toBe(3);
     expect(board.n2).toBe(9);
     expect(board.last_direction).toBe("");
     expect(board.blankIndex).toBe(8);

@@ -1,15 +1,32 @@
 {
-  "name": "newest_1",
-  "version": "1.0.0",
-  "description": "",
+  "name": "a-star-tile-puzzle-solver",
+  "version": "0.0.1",
+  "description": "A React.js sliding tile puzzle game/solver, with JS and Web Assembly Rust solving algorithms",
+  "author": "KYDronePilot <33381603+KYDronePilot@users.noreply.github.com> (https://github.com/KYDronePilot)",
   "main": "index.js",
   "scripts": {
-    "build-wasm": "cargo build --release --target wasm32-unknown-unknown",
-    "build-bindgen": "wasm-pack build --out-dir build --no-typescript",
-    "build": "npm run build-wasm && npm run build-bindgen && npx webpack"
+    "build-wasm-dev": "cargo build --target wasm32-unknown-unknown",
+    "build-bindgen-dev": "wasm-pack build --dev --out-dir build --no-typescript",
+    "build-ui-dev": "npx webpack --config webpack.dev.js",
+    "build-dev": "npm run build-wasm-dev && npm run build-bindgen-dev && npm run build-ui-dev",
+    "build-wasm-prod": "cargo build --release --target wasm32-unknown-unknown",
+    "build-bindgen-prod": "wasm-pack build --release --out-dir build --no-typescript",
+    "build-ui-prod": "npx webpack --config webpack.prod.js",
+    "build-prod": "npm run build-wasm-prod && npm run build-bindgen-prod && npm run build-ui-prod"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KYDronePilot/tile_puzzle_a_star"
+  },
+  "bugs": {
+    "url": "https://github.com/KYDronePilot/tile_puzzle_a_star/issues"
+  },
+  "keywords": [
+    "React.js",
+    "Rust",
+    "Web Assembly",
+    "Algorithms"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.5.0",
@@ -23,6 +40,7 @@
     "css-loader": "^3.1.0",
     "file-loader": "^4.1.0",
     "style-loader": "^0.23.1",
+    "url-loader": "^2.1.0",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5"
   },
@@ -31,8 +49,10 @@
     "cropperjs": "^1.5.5",
     "express": "^4.17.1",
     "js-priority-queue": "^0.1.5",
+    "mdbreact": "^4.19.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "webpack-merge": "^4.2.1"
   }
 }

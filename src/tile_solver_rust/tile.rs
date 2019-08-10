@@ -28,13 +28,13 @@ impl Tile {
     /// Generate tiles for a solved game board.
     ///
     /// # Parameters
-    /// * `n` - Number of tiles to generate
+    /// * `boardSize` - Number of tiles to generate
     ///
     /// # Returns
     /// Generated tiles
     pub fn generate_tiles(n: i32) -> Box<[Tile]> {
         let mut tiles: Vec<Tile> = Vec::with_capacity(n as usize);
-        // Generate the first n - 1 tiles
+        // Generate the first boardSize - 1 tiles
         for i in 1..(n * n) {
             tiles.push(Tile::new(i));
         }

@@ -44,7 +44,7 @@ pub fn solve_board(board_info: &str) -> String {
 /// Main function of tile solver.
 ///
 /// # Parameters
-/// * `n` - Size of the board
+/// * `boardSize` - Size of the board
 /// * `tiles` - Tiles that make up the board
 ///
 /// # Returns

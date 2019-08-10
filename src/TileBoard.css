@@ -33,25 +33,25 @@
     background: #fff;
 }
 
-.move-up {
-    -webkit-transform: translateY(-100px);
-    transform: translateY(-100px);
-}
+/*.move-up {*/
+/*    -webkit-transform: translateY(-100px);*/
+/*    transform: translateY(-100px);*/
+/*}*/
 
-.move-down {
-    -webkit-transform: translateY(100px);
-    transform: translateY(100px);
-}
+/*.move-down {*/
+/*    -webkit-transform: translateY(100px);*/
+/*    transform: translateY(100px);*/
+/*}*/
 
-.move-left {
-    -webkit-transform: translateX(-100px);
-    transform: translateX(-100px);
-}
+/*.move-left {*/
+/*    -webkit-transform: translateX(-100px);*/
+/*    transform: translateX(-100px);*/
+/*}*/
 
-.move-right {
-    -webkit-transform: translateX(100px);
-    transform: translateX(100px);
-}
+/*.move-right {*/
+/*    -webkit-transform: translateX(100px);*/
+/*    transform: translateX(100px);*/
+/*}*/
 
 .success {
     background-color: #39a842;

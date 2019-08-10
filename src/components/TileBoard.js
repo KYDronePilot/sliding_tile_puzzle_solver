@@ -1,15 +1,30 @@
 import React, {Component} from 'react';
 import {Tile} from '../tile_solver/Tile';
 import BoardNode from '../tile_solver/BoardNode';
-import Board, {MOVES, OPPOSITE_DIRECTIONS} from '../tile_solver/Board';
+import {MOVES} from '../tile_solver/Board';
 import AStarSolver from '../tile_solver/AStarSolver';
 import '../TileBoard.css'
 import {Tile as TileComponent} from './Tile';
+import AlgorithmSelection from './AlgorithmSelection';
+import {
+    MDBContainer, MDBRow, MDBCol
+} from "mdbreact";
+import RadioBlock from './RadioBlock';
+import OptionHeading from './OptionHeading';
+import OptionSection from './OptionSection';
+import Hr from './Hr';
+import TextBasedInput from './TextBasedInput';
+import Dropdown from './dropdown';
 
-const wasmSolver = import("../../build/react_rust_wasm");
+const wasmSolver = import('../../build/react_rust_wasm');
 
 const RUST_ALGORITHM = 'rust-algorithm';
 const JS_ALGORITHM = 'js-algorithm';
+// Dimensions of the board
+const BOARD_DIMENSIONS = 400;
+
+// Maximum size of the board (horizontally and vertically, in pixels)
+const MAX_BOARD_SIZE = 400;
 
 // Board size
 let BOARD_N = 4;
@@ -20,52 +35,82 @@ let SHUFFLE_N = 10;
 // Visual move timeout (ms)
 let MOVE_TIMEOUT = 1000;
 
+/**
+ * Simple method for synchronous sleeping in code.
+ * @param ms {number} - Number of milliseconds to sleep for
+ * @return {Promise<any>}
+ */
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+/**
+ * Simple heading with info.
+ */
+function StatsHeading(props) {
+    return (
+        <div>
+            <h3 style={{display: 'inline-block', marginRight: '4px'}}>{props.label}:</h3>
+            <span style={{fontSize: '1.17em'}}>{props.value}</span>
+        </div>
+    );
+}
+
+/**
+ * Buttons for controlling the board (with styling).
+ */
+function Button(props) {
+    const styles = {
+        backgroundColor: props.backgroundColor,
+        border: 'none',
+        color: 'white',
+        padding: '10px 20px',
+        textAlign: 'center',
+        textDecoration: 'none',
+        display: 'inline-block',
+        fontSize: '20px',
+        borderRadius: 0
+    };
+
+    return (
+        <button className={'primary'} onClick={props.onClick}
+                style={styles}>
+            {props.label}
+        </button>
+    );
+}
+
+/**
+ * Main class for representing the visual game board.
+ * @author Michael Galliers (KYDronePilot)
+ */
 class TileBoard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            n: BOARD_N,
+            numTiles: 4,
+            boardSize: 408,
+            tileSize: 100,
             board: BoardNode.createGameBoard(BOARD_N, INITIAL_SHUFFLE_N),
             solverAlgorithm: JS_ALGORITHM,
-            shuffleCount: INITIAL_SHUFFLE_N
+            shuffleCount: INITIAL_SHUFFLE_N,
+            timesShuffled: INITIAL_SHUFFLE_N
         };
     }
 
     /**
      * Shuffle the board.
-     * @return {null}
      */
-    async shuffle() {
-        await this.setState(state => {
-            state.board.shuffle(SHUFFLE_N);
-            // console.log(state.board.toString());
-            // console.log(board.tiles.map(item => item.symbol));
-            return {board: state.board, shuffleCount: state.shuffleCount + SHUFFLE_N};
+    shuffle() {
+        this.setState(state => {
+            state.board.shuffle(state.shuffleCount);
+            return {board: state.board, timesShuffled: state.timesShuffled + state.shuffleCount};
         });
-        // console.log(this.state.board.toString());
-    }
-
-    /**
-     * Animate board solution moves (solve the board visually).
-     * @param board {BoardNode} - Board to solve
-     * @param moves {Array<string>} - Moves to make
-     * @return {Promise<void>}
-     */
-    async solveVisualBoard(moves) {
-        for (let move of moves) {
-            this.slideTile(move);
-            // Pause before next move
-            await sleep(MOVE_TIMEOUT);
-        }
     }
 
     /**
      * Solve the board algorithmically and then visually.
-     * @return {null}
+     * @return {Promise<void>}
      */
     async solve() {
         // Solve the board
@@ -75,7 +120,20 @@ class TileBoard extends Component {
             this.solveRust();
         }
         // Reset shuffle count
-        this.setState({shuffleCount: 0});
+        this.setState({timesShuffled: 0});
+    }
+
+    /**
+     * Animate moves to solve the board (solve the board visually).
+     * @param moves {Array<string>} - Moves to make
+     * @return {Promise<void>}
+     */
+    async solveVisualBoard(moves) {
+        for (let move of moves) {
+            this.slideTile(move);
+            // Pause before next move
+            await sleep(MOVE_TIMEOUT);
+        }
     }
 
     /**
@@ -91,7 +149,7 @@ class TileBoard extends Component {
         // Solve visual board
         this.solveVisualBoard(solutionMoves)
             .then(() => {
-                this.setState({board: BoardNode.createGameBoard(BOARD_N, 0)});
+                this.setState({board: BoardNode.createGameBoard(this.state.numTiles, 0)});
                 BoardNode.resetPreviousBoards();
             });
     }
@@ -104,7 +162,7 @@ class TileBoard extends Component {
         wasmSolver.then(solver => {
             // Prepare to solve board
             let unsolvedBoard = this.state.board.copy();
-            let tilesCSV = this.state.n + ',' + unsolvedBoard.tiles.map(tile => tile.symbol).join(',');
+            let tilesCSV = this.state.numTiles + ',' + unsolvedBoard.tiles.map(tile => tile.symbol).join(',');
             // Solve and get solution moves
             let solutionMoves = solver.solve_board(tilesCSV);
             const expandedSolutionMoves = solutionMoves.split('').map(moveChar => {
@@ -119,36 +177,20 @@ class TileBoard extends Component {
             // Solve visual board
             this.solveVisualBoard(expandedSolutionMoves)
                 .then(() => {
-                    this.setState({board: BoardNode.createGameBoard(BOARD_N, 0)});
+                    this.setState({board: BoardNode.createGameBoard(this.state.numTiles, 0)});
                 });
         })
     }
 
     /**
      * Slide tile on the visual board.
-     * @param moveDirection {string} - Move direction of blank tile
+     * @param blankTileMoveDirection {string} - Direction to move blank tile
      */
     slideTile(blankTileMoveDirection) {
-        // Get index of tile to move
+        // Get tile to move and click it
         let tileI = this.state.board.translate(this.state.board.blankIndex, blankTileMoveDirection);
         const tile = document.getElementById(`tile-${this.state.board.tiles[tileI].symbol}`);
         tile.click();
-        // // Get actual move direction of tile
-        // let moveDirection = OPPOSITE_DIRECTIONS[blankTileMoveDirection];
-        // // Get DOM of object to move
-        // let domTile = document.querySelector(`.tile:nth-child(${tileI + 1})`);
-        // // Start move animation.
-        // domTile.classList.add(`move-${moveDirection}`);
-        // setTimeout(() => {
-        //     // Swap tile positions
-        //     [board.tiles[board.blankIndex], board.tiles[tileI]] = [board.tiles[tileI], board.tiles[board.blankIndex]];
-        //     // Update blank tile index
-        //     board.blankIndex = tileI;
-        //     // Remove move animation
-        //     domTile.classList.remove(`move-${moveDirection}`);
-        //     // Update state.
-        //     this.setState({board: board});
-        // }, 300);
     }
 
     /**
@@ -193,6 +235,23 @@ class TileBoard extends Component {
     }
 
     /**
+     * Calculate the size of the tiles and board based on the number of tiles in a row/column.
+     * @param numTiles {string} - Number of tiles in a row/column
+     */
+    updateSize(numTiles) {
+        const numTilesInt = parseInt(numTiles);
+        // Size of each tile
+        const tileSize = Math.floor(MAX_BOARD_SIZE / numTilesInt);
+        // Size of board
+        const boardSize = tileSize * numTilesInt;
+        this.setState({
+            numTiles: numTilesInt,
+            tileSize, boardSize,
+            board: BoardNode.createGameBoard(numTilesInt, 0)
+        });
+    }
+
+    /**
      * Handle changes to the algorithm option.
      * @param event - Event info
      */
@@ -200,53 +259,82 @@ class TileBoard extends Component {
         this.setState({solverAlgorithm: event.target.value});
     }
 
-    handleSizeChange(event) {
-
+    /**
+     * Handle change to the number of times to shuffle the board with each click.
+     * @param value {number} - Number to update to
+     */
+    handleShuffleCountChange(value) {
+        this.setState({shuffleCount: value});
     }
 
     render() {
         return (
-            <div>
-                <div
-                    style={{
-                        width: '408px', height: '408px',
-                        display: 'block', marginLeft: 'auto', marginRight: 'auto'
-                    }}>
-                    {this.state.board.tiles.map(tile => (<TileComponent tile={tile} board={this} n={this.state.n}/>))}
+            <div style={{textAlign: 'center', fontFamily: 'Roboto, sans-serif'}}>
+                <div style={{display: 'inline-block', textAlign: 'left'}}>
+                    <div
+                        style={{
+                            width: `${this.state.boardSize + this.state.numTiles * 2}px`,
+                            height: `${this.state.boardSize + this.state.numTiles * 2}px`
+                        }}>
+                        {this.state.board.tiles.map(tile => (
+                            <TileComponent tile={tile} board={this}
+                                           n={this.state.boardSize}
+                                           numTiles={this.state.numTiles}
+                                           tileSize={this.state.tileSize}
+                                           key={`${this.state.numTiles}-${tile.toString()}`}
+                            />))}
+                    </div>
+
+                    <Hr/>
+
+                    {/* Number of times the board has been shuffled */}
+                    <StatsHeading label={'Times Shuffled'} value={this.state.timesShuffled}/>
+
+                    <Hr/>
+
+                    {/* Solving algorithm selection */}
+                    <OptionSection name={'Solving Algorithm'}>
+                        <RadioBlock
+                            onChange={this.handleAlgorithmChange.bind(this)}
+                            checked={this.state.solverAlgorithm === JS_ALGORITHM}
+                            value={JS_ALGORITHM}
+                            id={JS_ALGORITHM}
+                            description={'Native Javascript'}
+                        />
+                        <RadioBlock
+                            onChange={this.handleAlgorithmChange.bind(this)}
+                            checked={this.state.solverAlgorithm === RUST_ALGORITHM}
+                            value={RUST_ALGORITHM}
+                            id={RUST_ALGORITHM}
+                            description={'Web Assembly Rust'}
+                        />
+                    </OptionSection>
+
+                    <Hr/>
+
+                    {/* Other options */}
+                    <OptionSection name={'Other Options'}>
+                        {/* Shuffle count */}
+                        <TextBasedInput
+                            name={'shuffleCount'} inputType={'int'}
+                            label={'Shuffle Count'} handleChange={this.handleShuffleCountChange.bind(this)}
+                            defaultValue={10}
+                        />
+                        {/* Board size */}
+                        <Dropdown
+                            handleChange={this.updateSize.bind(this)}
+                            label={'Board Size'}
+                            defaultValue={'4'}
+                            values={[3, 4, 5]}
+                        />
+                    </OptionSection>
+
+                    {/* Action buttons */}
+                    <OptionSection name={'Actions'}>
+                        <Button label={'Shuffle'} onClick={this.shuffle.bind(this)} backgroundColor={'#d53346'}/>
+                        <Button label={'Solve'} onClick={this.solve.bind(this)} backgroundColor={'#39a842'}/>
+                    </OptionSection>
                 </div>
-                <div style={{margin: '4px 0'}}>
-                    <button className={'primary'} onClick={this.shuffle.bind(this)}>Shuffle</button>
-                    <button className={'success'} onClick={this.solve.bind(this)}>Solve</button>
-                </div>
-                <h3>Solving Algorithm</h3>
-                <div style={{display: 'block', marginBottom: '10px'}}>
-                    <label htmlFor={JS_ALGORITHM}>Native Javascript</label>
-                    <input
-                        type={'radio'}
-                        id={JS_ALGORITHM}
-                        value={JS_ALGORITHM}
-                        checked={this.state.solverAlgorithm === JS_ALGORITHM}
-                        onChange={this.handleAlgorithmChange.bind(this)}
-                        style={{marginLeft: '5px'}}
-                    />
-                </div>
-                <h3>Other Options</h3>
-                <div>
-                    <input type="text"/>
-                </div>
-                <div style={{display: 'block'}}>
-                    <label htmlFor={RUST_ALGORITHM}>Web Assembly Rust</label>
-                    <input
-                        defaultChecked={true}
-                        type={'radio'}
-                        id={JS_ALGORITHM}
-                        value={RUST_ALGORITHM}
-                        checked={this.state.solverAlgorithm === RUST_ALGORITHM}
-                        onChange={this.handleAlgorithmChange.bind(this)}
-                        style={{marginLeft: '5px'}}
-                    />
-                </div>
-                <h4>Times shuffled: {this.state.shuffleCount}</h4>
             </div>
         )
     }

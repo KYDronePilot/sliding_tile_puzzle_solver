@@ -4,8 +4,6 @@ import {Tile as TileObject} from '../tile_solver/Tile';
 import {TileBoard} from './TileBoard';
 import image from '../../dist/test_image_resized_2.jpg';
 
-// Dimensions of individual tiles
-const tileDimensions = '100px';
 
 /**
  * Represents a physical tile on the game board.
@@ -14,13 +12,40 @@ const tileDimensions = '100px';
 class Tile extends Component {
     constructor(props) {
         super(props);
-        this.state = {moveClass: ''}
+        this.state = {moveClass: ''};
     }
 
+    // Styles for smooth transitions
+    static transitions = {
+        WebkitTransition: '-webkit-transform 0.3s, background 0.3s',
+        transition: 'transform 0.3s, background 0.3s'
+    };
+
+    // Styles for CSS tile sliding
+    moveStyles = {
+        up: {...{
+            WebkitTransform: `translateY(-${this.props.tileSize}px)`,
+            transform: `translateY(-${this.props.tileSize}px)`
+        }, ...Tile.transitions},
+        down: {...{
+            WebkitTransform: `translateY(${this.props.tileSize}px)`,
+            transform: `translateY(${this.props.tileSize}px)`
+        }, ...Tile.transitions},
+        left: {...{
+            WebkitTransform: `translateX(-${this.props.tileSize}px)`,
+            transform: `translateX(-${this.props.tileSize}px)`
+        }, ...Tile.transitions},
+        right: {...{
+            WebkitTransform: `translateX(${this.props.tileSize}px)`,
+            transform: `translateX(${this.props.tileSize}px)`
+        }, ...Tile.transitions}
+    };
+
     static propTypes = {
-        tile: PropTypes.instanceOf(TileObject),
-        board: PropTypes.instanceOf(TileBoard),
-        n: PropTypes.number
+        numTiles: PropTypes.number,
+        tileSize: PropTypes.number,
+        tile: PropTypes.any,
+        board: PropTypes.any
     };
 
     /**
@@ -28,7 +53,7 @@ class Tile extends Component {
      * @return {number} Row of tile
      */
     row() {
-        return Math.floor((this.props.tile.symbol - 1) / this.props.n) + 1;
+        return Math.floor((this.props.tile.symbol - 1) / this.props.numTiles) + 1;
     }
 
     /**
@@ -36,7 +61,7 @@ class Tile extends Component {
      * @return {number} Column of the tile
      */
     col() {
-        return (this.props.tile.symbol - 1) % this.props.n + 1;
+        return (this.props.tile.symbol - 1) % this.props.numTiles + 1;
     }
 
     /**
@@ -44,7 +69,7 @@ class Tile extends Component {
      * @return {string} The "X Y" background position info
      */
     backgroundPosition() {
-        return `${(this.col() - 1) * -100}px ${(this.row() - 1) * -100}px`;
+        return `${(this.col() - 1) * (-1 * this.props.tileSize)}px ${(this.row() - 1) * (-1 * this.props.tileSize)}px`;
     }
 
     /**
@@ -63,7 +88,7 @@ class Tile extends Component {
      * @param callback {function} - Callback after tile finishes moving
      */
     slideTile(moveDirection, callback) {
-        this.setState({moveClass: `move-${moveDirection}`}, () => {
+        this.setState({moveClass: moveDirection}, () => {
             setTimeout(() => {
                 this.setState({moveClass: ''}, callback);
             }, 300)
@@ -94,13 +119,13 @@ class Tile extends Component {
                 className={`tile ${this.state.moveClass}`}
                 id={`tile-${this.props.tile.symbol}`}
                 onClick={this.handleClick.bind(this)}
-                style={{
-                    height: tileDimensions, width: tileDimensions,
+                style={{...{
+                    height: `${this.props.tileSize}px`, width: `${this.props.tileSize}px`,
                     background: this.background(),
                     backgroundPosition: this.backgroundPosition(),
                     display: 'block', float: 'left',
                     border: '1px solid white'
-                }}>
+                }, ...this.moveStyles[this.state.moveClass]}}>
             </div>
         );
     }

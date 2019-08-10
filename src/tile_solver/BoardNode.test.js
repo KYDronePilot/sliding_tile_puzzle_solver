@@ -36,7 +36,7 @@ test("BoardNode create game board", () => {
 
 test("BoardNode copy", () => {
     let newBoardNode = boardNode.copy();
-    expect(boardNode.n).toBe(newBoardNode.n);
+    expect(boardNode.boardSize).toBe(newBoardNode.n);
     expect(boardNode.solved_board).toBe(newBoardNode.solved_board);
     expect(boardNode.depth).toBe(newBoardNode.depth);
     expect(boardNode.parent).toBe(newBoardNode.parent);

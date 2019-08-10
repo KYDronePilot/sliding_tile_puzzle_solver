@@ -32,7 +32,7 @@ const MOVES: [char; 4] = [UP, DOWN, LEFT, RIGHT];
 /// * Author - Michael Galliers
 ///
 /// # Attributes
-/// * `n` - Size of board
+/// * `boardSize` - Size of board
 /// * `n2` - Number of tiles in board
 /// * `last_direction` - Direction of last move made
 /// * `solved_board` - Solved version of board
@@ -56,7 +56,7 @@ impl Board {
     /// Create a new board with optional tiles.
     ///
     /// # Parameters
-    /// * `n` - Size of the board
+    /// * `boardSize` - Size of the board
     /// * `solved_board` - Solved version of the board
     /// * `depth` - The depth of the board in the state-space tree
     /// * `parent_node` - The parent board from which this board was derived
@@ -101,15 +101,15 @@ impl Board {
 //    /// Create the root game board.
 //    ///
 //    /// # Parameters
-//    /// * `n` - Size of board
+//    /// * `boardSize` - Size of board
 //    /// * `shuffle_n` - Number of times to shuffle the board
 //    ///
 //    /// # Returns
 //    /// New game board
-//    pub fn create_game_board<'a>(n: i32, shuffle_n: i32) -> Board<'a> {
+//    pub fn create_game_board<'a>(boardSize: i32, shuffle_n: i32) -> Board<'a> {
 //        // Create solved and unsolved boards
-//        let solved_board = Board::new(n, None, -1, None, []);
-//        let mut unsolved_board = Board::new(n, Some(&solved_board), 0, None, []);
+//        let solved_board = Board::new(boardSize, None, -1, None, []);
+//        let mut unsolved_board = Board::new(boardSize, Some(&solved_board), 0, None, []);
 //        // Shuffle tiles
 //        unsolved_board.shuffle(shuffle_n);
 //        unsolved_board
@@ -169,9 +169,9 @@ impl Board {
 //    /// Shuffle the tiles using valid moves to ensure the puzzle is solvable.
 //    ///
 //    /// # Parameters
-//    /// * `n` - Number of random moves to make
-//    pub fn shuffle(&mut self, n: i32) {
-//        for _i in 0..n {
+//    /// * `boardSize` - Number of random moves to make
+//    pub fn shuffle(&mut self, boardSize: i32) {
+//        for _i in 0..boardSize {
 //            // Update the blank index
 //            self.blank_index = self.get_blank_index();
 //            // Get all valid moves

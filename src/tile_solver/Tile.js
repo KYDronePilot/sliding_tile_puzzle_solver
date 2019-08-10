@@ -66,7 +66,7 @@ export class Tile {
      */
     static generateTiles(n) {
         let tiles = [];
-        // Generate the first n - 1 tiles
+        // Generate the first boardSize - 1 tiles
         for (let i = 1; i < n ** 2; i++) {
             tiles.push(new Tile(i));
         }

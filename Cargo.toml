@@ -1,6 +1,8 @@
 [package]
-name = "react_rust_wasm"
-version = "1.0.0"
+name = "a-star-tile-puzzle-solver"
+version = "0.0.1"
+authors = ["KYDronePilot <33381603+KYDronePilot@users.noreply.github.com> (https://github.com/KYDronePilot)"]
+description = "A library for solving the sliding tile puzzle. Designed for use with Web Assembly"
 
 [lib]
 crate-type = ["cdylib"]
