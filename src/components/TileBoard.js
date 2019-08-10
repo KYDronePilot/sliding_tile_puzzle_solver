@@ -5,12 +5,7 @@ import {MOVES} from '../tile_solver/Board';
 import AStarSolver from '../tile_solver/AStarSolver';
 import '../TileBoard.css'
 import {Tile as TileComponent} from './Tile';
-import AlgorithmSelection from './AlgorithmSelection';
-import {
-    MDBContainer, MDBRow, MDBCol
-} from "mdbreact";
 import RadioBlock from './RadioBlock';
-import OptionHeading from './OptionHeading';
 import OptionSection from './OptionSection';
 import Hr from './Hr';
 import TextBasedInput from './TextBasedInput';
