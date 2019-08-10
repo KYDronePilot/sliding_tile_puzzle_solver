@@ -46,10 +46,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "cropperjs": "^1.5.5",
     "express": "^4.17.1",
     "js-priority-queue": "^0.1.5",
-    "mdbreact": "^4.19.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
