@@ -10,13 +10,12 @@ import OptionSection from './OptionSection';
 import Hr from './Hr';
 import TextBasedInput from './TextBasedInput';
 import Dropdown from './dropdown';
+import PropTypes from 'prop-types';
 
 const wasmSolver = import('../../build/a_star_tile_puzzle_solver');
 
 const RUST_ALGORITHM = 'rust-algorithm';
 const JS_ALGORITHM = 'js-algorithm';
-// Dimensions of the board
-const BOARD_DIMENSIONS = 400;
 
 // Maximum size of the board (horizontally and vertically, in pixels)
 const MAX_BOARD_SIZE = 400;
@@ -25,8 +24,6 @@ const MAX_BOARD_SIZE = 400;
 let BOARD_N = 4;
 // Initial number of times to shuffle
 let INITIAL_SHUFFLE_N = 10;
-// Number of times to shuffle with each button click
-let SHUFFLE_N = 10;
 // Visual move timeout (ms)
 let MOVE_TIMEOUT = 1000;
 
@@ -80,6 +77,11 @@ function Button(props) {
  * @author Michael Galliers (KYDronePilot)
  */
 class TileBoard extends Component {
+    static propTypes = {
+        color: PropTypes.string,
+        backgroundColor: PropTypes.string
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -264,7 +266,12 @@ class TileBoard extends Component {
 
     render() {
         return (
-            <div style={{textAlign: 'center', fontFamily: 'Roboto, sans-serif'}}>
+            <div style={{
+                textAlign: 'center',
+                fontFamily: 'Roboto, sans-serif',
+                color: this.props.color,
+                marginBottom: '40px'
+            }}>
                 <div style={{display: 'inline-block', textAlign: 'left'}}>
                     <div
                         style={{
@@ -276,16 +283,17 @@ class TileBoard extends Component {
                                            n={this.state.boardSize}
                                            numTiles={this.state.numTiles}
                                            tileSize={this.state.tileSize}
+                                           backgroundColor={this.props.backgroundColor}
                                            key={`${this.state.numTiles}-${tile.toString()}`}
                             />))}
                     </div>
 
-                    <Hr/>
+                    <Hr color={this.props.color}/>
 
                     {/* Number of times the board has been shuffled */}
                     <StatsHeading label={'Times Shuffled'} value={this.state.timesShuffled}/>
 
-                    <Hr/>
+                    <Hr color={this.props.color}/>
 
                     {/* Solving algorithm selection */}
                     <OptionSection name={'Solving Algorithm'}>
@@ -305,7 +313,7 @@ class TileBoard extends Component {
                         />
                     </OptionSection>
 
-                    <Hr/>
+                    <Hr color={this.props.color}/>
 
                     {/* Other options */}
                     <OptionSection name={'Other Options'}>

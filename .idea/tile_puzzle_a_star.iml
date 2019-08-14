@@ -18,12 +18,15 @@
       <sourceFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/benches" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/.tmp" />
+      <sourceFolder url="file://$MODULE_DIR$/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+      <excludeFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/newest_1/target" />
       <excludeFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/src/tile_solver_rust/target" />
       <excludeFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/src/tile_solver_rust_wasm/target" />
-      <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/temp" />
       <excludeFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/tmp" />
     </content>

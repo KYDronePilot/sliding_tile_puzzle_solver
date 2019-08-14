@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <TileBoard />
+        <TileBoard color={'black'} backgroundColor={'white'}/>
       </div>
     );
   }

@@ -80,7 +80,8 @@ class TextBasedInput extends Component {
                         fontSize: '14px',
                         color: '#555',
                         backgroundColor: 'white',
-                        borderRadius: '4px'
+                        borderRadius: '4px',
+                        border: '1px solid #cccccc'
                     }}
                     placeholder={this.props.defaultValue}
                 />

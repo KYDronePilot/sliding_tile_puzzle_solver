@@ -45,7 +45,8 @@ class Tile extends Component {
         numTiles: PropTypes.number,
         tileSize: PropTypes.number,
         tile: PropTypes.any,
-        board: PropTypes.any
+        board: PropTypes.any,
+        backgroundColor: PropTypes.string
     };
 
     /**
@@ -78,7 +79,7 @@ class Tile extends Component {
      */
     background() {
         if (this.props.tile.isBlank())
-            return 'white';
+            return this.props.backgroundColor;
         return `url(${image})`;
     }
 
@@ -124,7 +125,7 @@ class Tile extends Component {
                     background: this.background(),
                     backgroundPosition: this.backgroundPosition(),
                     display: 'block', float: 'left',
-                    border: '1px solid white'
+                    border: `1px solid ${this.props.backgroundColor}`
                 }, ...this.moveStyles[this.state.moveClass]}}>
             </div>
         );

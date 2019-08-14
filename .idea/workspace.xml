@@ -7,8 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="More cleanup of old packages and components">
-      <change beforePath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib-root.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.lib.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/tile_puzzle_a_star.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tile_puzzle_a_star.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hr.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TextBasedInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TextBasedInput.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Tile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TileBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TileBoard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,17 +31,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/package.json">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+            <state relative-caret-position="531">
+              <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/.babelrc">
+        <entry file="file://$PROJECT_DIR$/.babelrc">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
               <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
@@ -39,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            <state relative-caret-position="294">
+              <caret line="14" column="67" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -52,10 +62,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.js">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="105">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -118,10 +128,9 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../a-star-tile-puzzle-solver" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../a-star-tile-puzzle-solver" value="master" />
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
@@ -129,8 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/tile_solver_rust_wasm/test-js/index.js" />
-        <option value="$PROJECT_DIR$/src/tile_solver_rust_wasm/src/lib.rs" />
         <option value="$PROJECT_DIR$/new_project/react-wasm-migration/package.json" />
         <option value="$PROJECT_DIR$/new_project/react-wasm-migration/src/components/TileBoard.js" />
         <option value="$PROJECT_DIR$/new_project/react-wasm-migration/config-overrides.js" />
@@ -155,31 +162,33 @@
         <option value="$PROJECT_DIR$/src/tile_solver/Board.js" />
         <option value="$PROJECT_DIR$/src/tile_solver/AStarSolver.js" />
         <option value="$PROJECT_DIR$/src/TileBoard.css" />
-        <option value="$PROJECT_DIR$/src/components/TileBoard.js" />
         <option value="$PROJECT_DIR$/dist/index.html" />
         <option value="$PROJECT_DIR$/webpack.dev.js" />
         <option value="$PROJECT_DIR$/webpack.prod.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/Cargo.toml" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/webpack.dev.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/App.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.css" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/OptionHeading.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/root.css" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/OptionSection.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TextInput.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/TileBoard.css" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/RadioBlock.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/dropdown.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/Tile.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TextBasedInput.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/Hr.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/index.html" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/package.json" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/AlgorithmSelection.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.js" />
-        <option value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js" />
+        <option value="$PROJECT_DIR$/webpack.dev.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/index.css" />
+        <option value="$PROJECT_DIR$/src/components/OptionHeading.js" />
+        <option value="$PROJECT_DIR$/src/root.css" />
+        <option value="$PROJECT_DIR$/src/components/OptionSection.js" />
+        <option value="$PROJECT_DIR$/src/components/TextInput.js" />
+        <option value="$PROJECT_DIR$/src/TileBoard.css" />
+        <option value="$PROJECT_DIR$/src/components/RadioBlock.js" />
+        <option value="$PROJECT_DIR$/src/components/dropdown.js" />
+        <option value="$PROJECT_DIR$/src/components/Tile.js" />
+        <option value="$PROJECT_DIR$/src/components/TextBasedInput.js" />
+        <option value="$PROJECT_DIR$/src/components/Hr.js" />
+        <option value="$PROJECT_DIR$/dist/index.html" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/src/components/AlgorithmSelection.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/build/README.md" />
+        <option value="$PROJECT_DIR$/pkg/package.json" />
+        <option value="$PROJECT_DIR$/src/components/TileBoard.js" />
+        <option value="$PROJECT_DIR$/src/components/TileBoard.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -193,8 +202,8 @@
     <option name="directoryName" value="uQuQZRis" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="91" />
-    <option name="y" value="86" />
+    <option name="x" value="75" />
+    <option name="y" value="55" />
     <option name="width" value="2399" />
     <option name="height" value="1196" />
   </component>
@@ -208,26 +217,16 @@
         <subPane>
           <expand>
             <path>
-              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
+              <item name="a-star-tile-puzzle-solver" type="b2602c69:ProjectViewProjectNode" />
               <item name="a-star-tile-puzzle-solver" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
-              <item name="a-star-tile-puzzle-solver" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
-              <item name="a-star-tile-puzzle-solver" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
+              <item name="a-star-tile-puzzle-solver" type="b2602c69:ProjectViewProjectNode" />
               <item name="a-star-tile-puzzle-solver" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="tile_puzzle_a_star" type="b2602c69:ProjectViewProjectNode" />
+              <item name="a-star-tile-puzzle-solver" type="b2602c69:ProjectViewProjectNode" />
               <item name="a-star-tile-puzzle-solver" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
@@ -286,7 +285,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.Run tile_solver_rust">
+  <component name="RunManager" selected="npm.npm build dev">
     <configuration name="Run tile_solver_rust" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package tile_solver_rust --bin tile_solver_rust" />
@@ -344,7 +343,7 @@
       <method v="2" />
     </configuration>
     <configuration name="npm build dev" type="js.build_tools.npm">
-      <package-json value="$PROJECT_DIR$/../a-star-tile-puzzle-solver/package.json" />
+      <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
         <script value="build-dev" />
@@ -355,12 +354,12 @@
     </configuration>
     <list>
       <item itemvalue="Cargo Command.Run tile_solver_rust" />
-      <item itemvalue="JavaScript Debug.Debug Application" />
-      <item itemvalue="Jest.AStarSolver solve" />
-      <item itemvalue="npm.npm build dev" />
       <item itemvalue="Cargo Command.Test board" />
       <item itemvalue="Cargo Command.Test board::tests" />
       <item itemvalue="Cargo Command.Test board::tests::test_board_priority_queue" />
+      <item itemvalue="JavaScript Debug.Debug Application" />
+      <item itemvalue="Jest.AStarSolver solve" />
+      <item itemvalue="npm.npm build dev" />
     </list>
     <recent_temporary>
       <list>
@@ -403,6 +402,7 @@
       <workItem from="1565133980066" duration="9771000" />
       <workItem from="1565222649678" duration="9365000" />
       <workItem from="1565300621857" duration="32972000" />
+      <workItem from="1565745265778" duration="1191000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1555374310485</created>
@@ -608,12 +608,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294192000" />
+    <option name="totallyTimeSpent" value="295383000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="91" y="86" width="2399" height="1196" extended-state="0" />
+    <frame x="75" y="55" width="2399" height="1196" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15400933" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15528214" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -703,34 +703,15 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/libcore/mem/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="267" column="7" selection-start-line="267" selection-start-column="7" selection-end-line="267" selection-end-column="7" />
-          <folding>
-            <element signature="e#8537#8538#0" expanded="true" />
-            <element signature="e#8583#8584#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/newest_1/src/a_star_solver.rs" />
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver_rust/tile.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/src/board.rs" />
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver_rust/lib.rs">
+    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/lib.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver/BoardNode.test.js">
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/BoardNode.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1512">
           <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
@@ -740,14 +721,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver/Board.test.js">
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/Board.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1890">
           <caret line="91" column="3" selection-start-line="91" selection-start-column="3" selection-end-line="91" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver/AStarSolver.test.js">
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/AStarSolver.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1155">
           <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
@@ -757,63 +738,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver/BoardNode.js">
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/BoardNode.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1806">
           <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/_config.yml">
+    <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/0.bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver/Board.js">
+    <entry file="file://$PROJECT_DIR$/dist/0.bundle.js" />
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/Board.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3528">
           <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver/AStarSolver.js">
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/AStarSolver.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1554">
           <caret line="74" selection-start-line="74" selection-end-line="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver_rust/board.rs">
+    <entry file="file://$PROJECT_DIR$/src/tile_solver_rust/board.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/bundle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25599">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/server.js">
+    <entry file="file://$PROJECT_DIR$/dist/bundle.js" />
+    <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/README.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
@@ -821,80 +790,72 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/package-lock.json">
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
           <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/Cargo.toml">
+    <entry file="file://$PROJECT_DIR$/Cargo.toml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/Cargo.lock">
+    <entry file="file://$PROJECT_DIR$/Cargo.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/.gitignore">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/9dbe5d3f5c6bb7b4098db83e9be8afde.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/webpack.dev.js">
+    <entry file="file://$PROJECT_DIR$/dist/9dbe5d3f5c6bb7b4098db83e9be8afde.jpg" />
+    <entry file="file://$PROJECT_DIR$/webpack.dev.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="482">
           <caret line="37" column="2" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/App.css">
+    <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="13" column="16" lean-forward="true" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.css">
+    <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/App.js">
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/node_modules/mdbreact/dist/types/index.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-330">
-          <caret line="615" column="22" lean-forward="true" selection-start-line="615" selection-start-column="22" selection-end-line="615" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/OptionHeading.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/mdbreact/dist/types/index.d.ts" />
+    <entry file="file://$PROJECT_DIR$/src/components/OptionHeading.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/OptionSection.js">
+    <entry file="file://$PROJECT_DIR$/src/components/OptionSection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
@@ -904,21 +865,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/TileBoard.css">
+    <entry file="file://$PROJECT_DIR$/src/TileBoard.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-100">
           <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/tile_solver/Tile.js">
+    <entry file="file://$PROJECT_DIR$/src/tile_solver/Tile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/RadioBlock.js">
+    <entry file="file://$PROJECT_DIR$/src/components/RadioBlock.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="604">
           <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
@@ -928,7 +889,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/dropdown.js">
+    <entry file="file://$PROJECT_DIR$/src/components/dropdown.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="37" column="92" selection-start-line="37" selection-start-column="92" selection-end-line="37" selection-end-column="92" />
@@ -938,14 +899,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/root.css">
+    <entry file="file://$PROJECT_DIR$/src/root.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/Tile.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Tile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
@@ -955,7 +916,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TextBasedInput.js">
+    <entry file="file://$PROJECT_DIR$/src/components/TextBasedInput.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="88" column="65" selection-start-line="88" selection-start-column="65" selection-end-line="88" selection-end-column="65" />
@@ -965,32 +926,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/Hr.js">
+    <entry file="file://$PROJECT_DIR$/src/components/Hr.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/index.html">
+    <entry file="file://$PROJECT_DIR$/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/test_image_resized_2.jpg">
+    <entry file="file://$PROJECT_DIR$/dist/test_image_resized_2.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/test_image_resized.jpg">
+    <entry file="file://$PROJECT_DIR$/dist/test_image_resized.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/test_image.jpg">
+    <entry file="file://$PROJECT_DIR$/dist/test_image.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/dist/logo_files/row-1-col-3.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/logo_files/row-1-col-3.jpg" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.rs">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1012,54 +971,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/webpack.prod.js">
+    <entry file="file://$PROJECT_DIR$/webpack.prod.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="5" column="3" lean-forward="true" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/package.json">
+    <entry file="file://$PROJECT_DIR$/src/components/AlgorithmSelection.js" />
+    <entry file="file://$PROJECT_DIR$/.babelrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        <state relative-caret-position="189">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/AlgorithmSelection.js">
+    <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="13" column="35" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="105">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../a-star-tile-puzzle-solver/src/components/TileBoard.js">
+    <entry file="file://$PROJECT_DIR$/build/a_star_tile_puzzle_solver.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        <state relative-caret-position="378">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="651">
+            <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pkg/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/TileBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="67" selection-start-line="14" selection-start-column="67" selection-end-line="14" selection-end-column="67" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
         </state>
       </provider>
     </entry>

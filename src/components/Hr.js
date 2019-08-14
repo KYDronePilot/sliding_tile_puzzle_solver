@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class Hr extends Component {
+    static propTypes = {
+        color: PropTypes.string
+    };
+
     render() {
         return (
             <hr style={{
@@ -9,7 +14,7 @@ class Hr extends Component {
                 height: '1px',
                 marginTop: '15px',
                 marginBottom: '15px',
-                backgroundImage: 'linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0))'
+                backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0), ${this.props.color}, rgba(0, 0, 0, 0))`
             }}/>
         );
     }
