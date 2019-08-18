@@ -6,17 +6,9 @@
     <cargoProject FILE="$PROJECT_DIR$/newest_1/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="Added support for different color schemes&#10;&#10; - Added functionality to allow for customization of the background and&#10;   foreground of the tile solver.&#10; - Other minor UI changes.">
-      <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.idea/tile_puzzle_a_star.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.idea/sliding_tile_puzzle_solver.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/Cargo.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/src/components/TileBoard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/src/components/TileBoard.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+            <state relative-caret-position="315">
+              <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -59,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="44" />
+            <state relative-caret-position="546">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -90,24 +82,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/Cargo.lock.new">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-154">
-              <caret line="75" selection-start-line="75" selection-end-line="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/Cargo.lock">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -115,15 +89,6 @@
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -142,7 +107,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>use super::tile::BLANK_TILE;</find>
       <find>BLANK_TILE</find>
       <find>previously_encountered</find>
       <find>shuffle</find>
@@ -172,6 +136,7 @@
       <find>shuffleCount</find>
       <find>mdbreact</find>
       <find>a_star_tile_puzzle_solver</find>
+      <find>Cargo</find>
     </findStrings>
     <replaceStrings>
       <replace>let solved_board = Board::new(3, None, -1, vec![]);</replace>
@@ -242,8 +207,8 @@
         <option value="$PROJECT_DIR$/../sliding_tile_puzzle_solver/Cargo.lock" />
         <option value="$PROJECT_DIR$/../sliding_tile_puzzle_solver/src/components/TileBoard.js" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
-        <option value="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml" />
         <option value="$PROJECT_DIR$/../sliding_tile_puzzle_solver/README.md" />
+        <option value="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml" />
       </list>
     </option>
   </component>
@@ -278,12 +243,12 @@
             </path>
             <path>
               <item name="a-star-tile-puzzle-solver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+              <item name="sliding_tile_puzzle_solver" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="a-star-tile-puzzle-solver" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-              <item name="Scratches" type="d62648e6:ScratchProjectViewPane$MyRootNode" />
             </path>
           </expand>
           <select />
@@ -456,7 +421,7 @@
       <workItem from="1565222649678" duration="9365000" />
       <workItem from="1565300621857" duration="32972000" />
       <workItem from="1565745265778" duration="1512000" />
-      <workItem from="1566073376046" duration="13405000" />
+      <workItem from="1566073376046" duration="13996000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1555374310485</created>
@@ -647,7 +612,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566138078820</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Final completion tasks&#10;&#10; - Renamed project to `sliding_tile_puzzle_solver`.&#10; - Made some minor improvements to the travis build config.&#10; - Rewrote the README to reflect the updated project and give more&#10;   information about it.">
+      <created>1566153678826</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1566153678826</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -683,7 +655,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309109000" />
+    <option name="totallyTimeSpent" value="309700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="46" width="2399" height="1196" extended-state="0" />
@@ -730,7 +702,6 @@
       <path value="$PROJECT_DIR$/even_newer_project" />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Got animation working, but having trouble with it sometimes not solving" />
     <MESSAGE value="Added a shuffle method to Board class&#10;&#10; - This ensures that randomly generated boards are solvable.&#10; - Also started setup for a 15-puzzle." />
     <MESSAGE value="Cleaned up code for submission&#10;&#10; - Also added README description of algorithm" />
     <MESSAGE value="Updated installation command" />
@@ -755,7 +726,8 @@
     <MESSAGE value="Added support for different color schemes&#10;&#10; - Added functionality to allow for customization of the background and&#10;   foreground of the tile solver.&#10; - Other minor UI changes." />
     <MESSAGE value="Added travis config to learn about the build environment" />
     <MESSAGE value="Updated Travis config for building and deploying to GitHub Pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Travis config for building and deploying to GitHub Pages" />
+    <MESSAGE value="Final completion tasks&#10;&#10; - Renamed project to `sliding_tile_puzzle_solver`.&#10; - Made some minor improvements to the travis build config.&#10; - Rewrote the README to reflect the updated project and give more&#10;   information about it." />
+    <option name="LAST_COMMIT_MESSAGE" value="Final completion tasks&#10;&#10; - Renamed project to `sliding_tile_puzzle_solver`.&#10; - Made some minor improvements to the travis build config.&#10; - Rewrote the README to reflect the updated project and give more&#10;   information about it." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -989,13 +961,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1052,13 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/Cargo.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="37" column="11" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/src/components/TileBoard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -1066,13 +1024,6 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -1095,8 +1046,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="29" column="19" lean-forward="true" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        <state relative-caret-position="315">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/Cargo.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>

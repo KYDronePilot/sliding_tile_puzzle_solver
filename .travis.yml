@@ -18,3 +18,9 @@ deploy:
   local_dir: dist
   on:
     branch: master
+notifications:
+  email:
+    recipients:
+      - $my_email
+    on_success: always
+    on_failure: always
