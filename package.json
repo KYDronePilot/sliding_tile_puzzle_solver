@@ -1,5 +1,5 @@
 {
-  "name": "a-star-tile-puzzle-solver",
+  "name": "sliding_tile_puzzle_solver",
   "version": "0.0.1",
   "description": "A React.js sliding tile puzzle game/solver, with JS and Web Assembly Rust solving algorithms",
   "author": "KYDronePilot <33381603+KYDronePilot@users.noreply.github.com> (https://github.com/KYDronePilot)",
@@ -16,10 +16,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/KYDronePilot/tile_puzzle_a_star"
+    "url": "https://github.com/KYDronePilot/sliding_tile_puzzle_solver"
   },
   "bugs": {
-    "url": "https://github.com/KYDronePilot/tile_puzzle_a_star/issues"
+    "url": "https://github.com/KYDronePilot/sliding_tile_puzzle_solver/issues"
   },
   "keywords": [
     "React.js",

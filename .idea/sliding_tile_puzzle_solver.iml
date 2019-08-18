@@ -18,9 +18,9 @@
       <sourceFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/examples" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/benches" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../a-star-tile-puzzle-solver/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../a-star-tile-puzzle-solver/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../a-star-tile-puzzle-solver/benches" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/../tile_puzzle_a_star/.tmp" />

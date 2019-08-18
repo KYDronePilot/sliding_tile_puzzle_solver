@@ -12,7 +12,7 @@ import TextBasedInput from './TextBasedInput';
 import Dropdown from './dropdown';
 import PropTypes from 'prop-types';
 
-const wasmSolver = import('../../build/a_star_tile_puzzle_solver');
+const wasmSolver = import('../../build/sliding_tile_puzzle_solver');
 
 const RUST_ALGORITHM = 'rust-algorithm';
 const JS_ALGORITHM = 'js-algorithm';
