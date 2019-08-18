@@ -6,7 +6,7 @@
     <cargoProject FILE="$PROJECT_DIR$/newest_1/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="">
+    <list default="true" id="9e9d8686-8b57-4359-8d2d-37749f7e27e4" name="Default Changelist" comment="Added travis email alerts">
       <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml" afterDir="false" />
     </list>
@@ -25,16 +25,16 @@
         <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/src/components/TileBoard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+            <state relative-caret-position="483">
+              <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -51,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="441">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -64,7 +64,7 @@
         <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
-              <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -72,9 +72,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SECOND">
-              <first_editor relative-caret-position="1533">
-                <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="378">
+                <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
               </first_editor>
               <second_editor />
             </state>
@@ -243,11 +243,6 @@
             </path>
             <path>
               <item name="a-star-tile-puzzle-solver" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sliding_tile_puzzle_solver" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="a-star-tile-puzzle-solver" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
@@ -272,7 +267,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
@@ -421,7 +416,7 @@
       <workItem from="1565222649678" duration="9365000" />
       <workItem from="1565300621857" duration="32972000" />
       <workItem from="1565745265778" duration="1512000" />
-      <workItem from="1566073376046" duration="13996000" />
+      <workItem from="1566073376046" duration="17945000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1555374310485</created>
@@ -619,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566153678826</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added travis email alerts">
+      <created>1566154026715</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1566154026715</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -655,7 +657,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309700000" />
+    <option name="totallyTimeSpent" value="313649000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="46" width="2399" height="1196" extended-state="0" />
@@ -702,7 +704,6 @@
       <path value="$PROJECT_DIR$/even_newer_project" />
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Added a shuffle method to Board class&#10;&#10; - This ensures that randomly generated boards are solvable.&#10; - Also started setup for a 15-puzzle." />
     <MESSAGE value="Cleaned up code for submission&#10;&#10; - Also added README description of algorithm" />
     <MESSAGE value="Updated installation command" />
     <MESSAGE value="Fixed Tile class and added testing&#10;&#10; - Added function for checking if tile is blank and updated code&#10;   accordingly.&#10; - Added a constant for a blank tile.&#10; - Added tests for Tile class." />
@@ -727,7 +728,8 @@
     <MESSAGE value="Added travis config to learn about the build environment" />
     <MESSAGE value="Updated Travis config for building and deploying to GitHub Pages" />
     <MESSAGE value="Final completion tasks&#10;&#10; - Renamed project to `sliding_tile_puzzle_solver`.&#10; - Made some minor improvements to the travis build config.&#10; - Rewrote the README to reflect the updated project and give more&#10;   information about it." />
-    <option name="LAST_COMMIT_MESSAGE" value="Final completion tasks&#10;&#10; - Renamed project to `sliding_tile_puzzle_solver`.&#10; - Made some minor improvements to the travis build config.&#10; - Rewrote the README to reflect the updated project and give more&#10;   information about it." />
+    <MESSAGE value="Added travis email alerts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added travis email alerts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1017,37 +1019,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/src/components/TileBoard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SECOND">
-          <first_editor relative-caret-position="1533">
-            <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-          </first_editor>
-          <second_editor />
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1065,10 +1047,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="378">
+            <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="441">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../sliding_tile_puzzle_solver/src/components/TileBoard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
