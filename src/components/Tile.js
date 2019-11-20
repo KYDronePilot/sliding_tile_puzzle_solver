@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Tile as TileObject} from '../tile_solver/Tile';
 import {TileBoard} from './TileBoard';
-import image from '../../dist/test_image_resized_2.jpg';
+import image from '../../dist/background.jpg';
 
 
 /**
